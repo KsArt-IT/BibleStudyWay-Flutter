@@ -1,7 +1,7 @@
 name: bible_study_way
 packages:
-  - packages/**
-  - app
+  - apps/*
+  - packages/*
 
 scripts:
   analyze: melos exec -- dart analyze .
