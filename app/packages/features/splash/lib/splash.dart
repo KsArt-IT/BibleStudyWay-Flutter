@@ -1,0 +1,1 @@
+export 'src/router/splash_routes.dart';
