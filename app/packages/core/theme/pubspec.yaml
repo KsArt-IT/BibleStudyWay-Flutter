@@ -1,0 +1,29 @@
+name: core_theme
+description: Theme data for app.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.8.1
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.5
+  # Theme gen
+  theme_tailor_annotation: ^3.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+  build_runner: ^2.5.4
+
+  # Theme gen
+  theme_tailor: ^3.0.3
+
+flutter:
