@@ -1,0 +1,8 @@
+name: bible_study_way
+packages:
+  - apps/*
+  - packages/*
+
+scripts:
+  analyze: melos exec -- dart analyze .
+  test: melos exec -- flutter test
