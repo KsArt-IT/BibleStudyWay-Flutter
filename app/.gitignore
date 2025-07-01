@@ -43,3 +43,21 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore environment files
+.env
+.env.*
+/env/
+/config/*.env
+.temp
+
+# Service key
+firebase.json
+firebase_options.dart
+google-services.json
+GoogleService-Info.plist
+
+/lib/firebase_options.dart
+/android/app/google-services.json
+/ios/Runner/GoogleService-Info.plist
+/ios/Runner/GoogleService-Info-*.plist
