@@ -9,7 +9,7 @@ import 'package:talker_flutter/talker_flutter.dart';
 /// {@endtemplate}
 class DebugServiceImpl implements DebugService {
   /// {@macro debug_service_impl}
-  DebugService() {
+  DebugServiceImpl() {
     _talker = TalkerFlutter.init();
     _talkerDioLogger = TalkerDioLogger(talker: _talker);
     _talkerRouteObserver = TalkerRouteObserver(_talker);

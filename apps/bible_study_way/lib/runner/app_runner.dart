@@ -50,8 +50,10 @@ class AppRunner {
   Future<void> run() async {
     try {
       WidgetsFlutterBinding.ensureInitialized();
-      // Ініціалізація сервісу відлагодження
+      
+      // Ініціалізація сервісу налагодження додатку
       _debugService = DebugServiceImpl();
+
       // Ініціалізація Таймера для підрахунку часу запуску програми
       _timerRunner = TimerRunner(_debugService);
 
