@@ -40,6 +40,18 @@ dependencies:
   # SplashScreen
   splash:
     path: ../../packages/features/splash
+  # Main
+  main:
+    path: ../../packages/features/main
+  # Lectures
+  lectures:
+    path: ../../packages/features/lectures
+  # Highlights
+  highlights:
+    path: ../../packages/features/highlights
+  # More
+  more:
+    path: ../../packages/features/more
 
 dev_dependencies:
   flutter_test:
