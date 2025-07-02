@@ -1,0 +1,14 @@
+# melos_managed_dependency_overrides: core_config,core_debug,core_localization,core_shared,core_theme,splash
+dependency_overrides:
+  core_config:
+    path: ../../packages/core/config
+  core_debug:
+    path: ../../packages/core/debug
+  core_localization:
+    path: ../../packages/core/localization
+  core_shared:
+    path: ../../packages/core/shared
+  core_theme:
+    path: ../../packages/core/theme
+  splash:
+    path: ../../packages/features/splash

@@ -29,4 +29,4 @@ flutter run -d chrome
 
 MIT license. See the [LICENSE](https://github.com/KsArt-IT/BibleStudyWay-Flutter?tab=MIT-1-ov-file) file for details.
 
-[LICENSE-Localization](https://github.com/KsArt-IT/BibleStudyWay-Flutter/blob/main/licenses/LICENSE-Localization) for Localization
+[LICENSE-other](https://github.com/KsArt-IT/BibleStudyWay-Flutter/blob/main/licenses) for pubs

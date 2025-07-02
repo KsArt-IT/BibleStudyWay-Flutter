@@ -1,0 +1,42 @@
+name: core_debug
+description: Debug services
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.8.1
+  flutter: ">=3.32.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Navigation
+  go_router: ^16.0.0
+
+  # Providers
+  provider: ^6.1.5
+
+  # Core
+  core_config:
+    path: ../config
+  core_shared:
+    path: ../shared
+  core_theme:
+    path: ../theme
+  core_localization:
+    path: ../localization
+
+  # Talker - logger
+  talker_flutter: ^4.9.1
+  talker_dio_logger: ^4.9.1
+  talker_bloc_logger: ^4.9.1
+  talker_logger: ^4.9.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
