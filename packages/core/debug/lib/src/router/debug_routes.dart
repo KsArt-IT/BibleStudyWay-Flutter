@@ -1,4 +1,4 @@
-import 'package:debug/src/screens/screens.dart';
+import 'package:core_debug/src/screens/screens.dart';
 import 'package:go_router/go_router.dart';
 
 /// {@template debug_routes}

@@ -1,4 +1,4 @@
-import 'package:debug/debug.dart';
+import 'package:core_debug/debug.dart';
 import 'package:flutter/material.dart';
 import 'package:talker_bloc_logger/talker_bloc_logger_observer.dart';
 import 'package:talker_dio_logger/talker_dio_logger_interceptor.dart';

@@ -1,4 +1,4 @@
-import 'package:debug/debug.dart';
+import 'package:core_debug/debug.dart';
 
 /// {@template TimerRunner}
 /// Клас для підрахунку часу запуску програми

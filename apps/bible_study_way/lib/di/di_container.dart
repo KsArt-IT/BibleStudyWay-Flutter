@@ -1,6 +1,6 @@
 import 'package:bible_study_way/di/di_typedefs.dart';
 import 'package:core_config/config.dart';
-import 'package:debug/debug.dart';
+import 'package:core_debug/debug.dart';
 
 /// {@template dependencies_container}
 /// Контейнер для залежностей

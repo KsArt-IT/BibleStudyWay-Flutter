@@ -1,5 +1,5 @@
 import 'package:core_config/config.dart';
-import 'package:debug/debug.dart';
+import 'package:core_debug/debug.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
