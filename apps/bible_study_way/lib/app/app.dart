@@ -127,7 +127,7 @@ class _App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      onGenerateTitle: (context) => context.l10n.app_title,
+      onGenerateTitle: (context) => context.l10n.appTitle,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       darkTheme: AppTheme.dark,

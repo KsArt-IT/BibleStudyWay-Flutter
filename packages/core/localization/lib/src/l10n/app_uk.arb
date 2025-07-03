@@ -1,12 +1,23 @@
 {
     "@@locale": "uk",
-    "app_title": "Bible Study Way",
-    "@app_title": {
+    "lang": "Українська",
+    "appTitle": "Bible Study Way",
+    "@appTitle": {
         "description": "Вивчай Біблію разом із нами, Study Way Life."
     },
     "helloWorld": "Привіт, світ!",
     "@helloWorld": {
         "description": "Привітання для нового програміста"
     },
-    "lang": "Українська"
+    "l_1": "---Bottom navigation---",
+    "main": "Головна",
+    "lectures": "Лекції",
+    "highlights": "Основне",
+    "more": "Ще",
+    "l_2": "---Main screen---",
+    "l_3": "---Lectures screen---",
+    "l_4": "---Highlights screen---",
+    "l_5": "---More screen---",
+    
+    "l_n": "---"
 }

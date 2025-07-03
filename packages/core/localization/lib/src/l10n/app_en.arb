@@ -1,12 +1,23 @@
 {
     "@@locale": "en",
-    "app_title": "Bible Study Way",
-    "@app_title": {
+    "lang": "English",
+    "appTitle": "Bible Study Way",
+    "@appTitle": {
         "description": "Study the Bible with us, Study Way Life."
     },
     "helloWorld": "Hello World!",
     "@helloWorld": {
         "description": "The conventional newborn programmer greeting"
     },
-    "lang": "English"
+    "l_1": "---Bottom navigation---",
+    "main": "Main",
+    "lectures": "Lectures",
+    "highlights": "Highlights",
+    "more": "More",
+    "l_2": "---Main screen---",
+    "l_3": "---Lectures screen---",
+    "l_4": "---Highlights screen---",
+    "l_5": "---More screen---",
+    
+    "l_n": "---"
 }

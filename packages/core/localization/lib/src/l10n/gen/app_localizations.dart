@@ -100,11 +100,17 @@ abstract class AppLocalizations {
     Locale('uk'),
   ];
 
+  /// No description provided for @lang.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get lang;
+
   /// Study the Bible with us, Study Way Life.
   ///
   /// In en, this message translates to:
   /// **'Bible Study Way'**
-  String get app_title;
+  String get appTitle;
 
   /// The conventional newborn programmer greeting
   ///
@@ -112,11 +118,65 @@ abstract class AppLocalizations {
   /// **'Hello World!'**
   String get helloWorld;
 
-  /// No description provided for @lang.
+  /// No description provided for @l_1.
   ///
   /// In en, this message translates to:
-  /// **'English'**
-  String get lang;
+  /// **'---Bottom navigation---'**
+  String get l_1;
+
+  /// No description provided for @main.
+  ///
+  /// In en, this message translates to:
+  /// **'Main'**
+  String get main;
+
+  /// No description provided for @lectures.
+  ///
+  /// In en, this message translates to:
+  /// **'Lectures'**
+  String get lectures;
+
+  /// No description provided for @highlights.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlights'**
+  String get highlights;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'More'**
+  String get more;
+
+  /// No description provided for @l_2.
+  ///
+  /// In en, this message translates to:
+  /// **'---Main screen---'**
+  String get l_2;
+
+  /// No description provided for @l_3.
+  ///
+  /// In en, this message translates to:
+  /// **'---Lectures screen---'**
+  String get l_3;
+
+  /// No description provided for @l_4.
+  ///
+  /// In en, this message translates to:
+  /// **'---Highlights screen---'**
+  String get l_4;
+
+  /// No description provided for @l_5.
+  ///
+  /// In en, this message translates to:
+  /// **'---More screen---'**
+  String get l_5;
+
+  /// No description provided for @l_n.
+  ///
+  /// In en, this message translates to:
+  /// **'---'**
+  String get l_n;
 }
 
 class _AppLocalizationsDelegate

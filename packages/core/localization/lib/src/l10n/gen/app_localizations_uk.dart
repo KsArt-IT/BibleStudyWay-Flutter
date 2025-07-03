@@ -9,11 +9,41 @@ class AppLocalizationsUk extends AppLocalizations {
   AppLocalizationsUk([String locale = 'uk']) : super(locale);
 
   @override
-  String get app_title => 'Bible Study Way';
+  String get lang => 'Українська';
+
+  @override
+  String get appTitle => 'Bible Study Way';
 
   @override
   String get helloWorld => 'Привіт, світ!';
 
   @override
-  String get lang => 'Українська';
+  String get l_1 => '---Bottom navigation---';
+
+  @override
+  String get main => 'Головна';
+
+  @override
+  String get lectures => 'Лекції';
+
+  @override
+  String get highlights => 'Основне';
+
+  @override
+  String get more => 'Ще';
+
+  @override
+  String get l_2 => '---Main screen---';
+
+  @override
+  String get l_3 => '---Lectures screen---';
+
+  @override
+  String get l_4 => '---Highlights screen---';
+
+  @override
+  String get l_5 => '---More screen---';
+
+  @override
+  String get l_n => '---';
 }
