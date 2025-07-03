@@ -20,7 +20,7 @@ abstract final class LecturesRoutes {
     initialLocation: _lecturesScreenPath,
     observers: observers,
     routes: [
-      ...routes,
+      if (routes.isNotEmpty) ...routes,
       GoRoute(
         path: _lecturesScreenPath,
         name: lecturesScreenName,

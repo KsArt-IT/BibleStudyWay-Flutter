@@ -20,7 +20,7 @@ abstract final class MoreRoutes {
     initialLocation: _moreScreenPath,
     observers: observers,
     routes: [
-      ...routes,
+      if (routes.isNotEmpty) ...routes,
       GoRoute(
         path: _moreScreenPath,
         name: moreScreenName,

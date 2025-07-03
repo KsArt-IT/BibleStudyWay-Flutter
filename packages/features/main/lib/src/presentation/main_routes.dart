@@ -20,7 +20,7 @@ abstract final class MainRoutes {
     initialLocation: mainScreenPath,
     observers: observers,
     routes: [
-      ...routes,
+      if (routes.isNotEmpty) ...routes,
       GoRoute(
         path: mainScreenPath,
         name: mainScreenName,

@@ -20,7 +20,7 @@ abstract final class HighlightsRoutes {
     initialLocation: _highlightsScreenPath,
     observers: observers,
     routes: [
-      ...routes,
+      if (routes.isNotEmpty) ...routes,
       GoRoute(
         path: _highlightsScreenPath,
         name: highlightsScreenName,

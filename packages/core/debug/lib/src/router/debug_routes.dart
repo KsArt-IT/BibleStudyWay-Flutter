@@ -33,7 +33,7 @@ abstract final class DebugRoutes {
     name: debugScreenName,
     builder: (context, state) => const DebugScreen(),
     routes: [
-      ...routes,
+      if (routes.isNotEmpty) ...routes,
       GoRoute(
         path: tokensScreenPath,
         name: tokensScreenName,
