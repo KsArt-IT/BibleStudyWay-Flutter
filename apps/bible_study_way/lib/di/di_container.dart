@@ -32,6 +32,7 @@ final class DiContainer {
       AppEnv.stage => AppConfigStage(),
     };
 
+    onProgress('Ініціалізація середовища завершена!');
     // throw Exception('Тестова – помилка ініціалізації залежностей');
 
     onComplete('Ініціалізація залежностей завершена!');

@@ -65,7 +65,8 @@ class _AppState extends State<App> {
             case ConnectionState.waiting:
             case ConnectionState.active:
               // Поки ініціалізація показуємо Splash
-              return const SplashScreen();
+              // return const SplashScreen();
+              return const SizedBox.shrink();
             case ConnectionState.done:
               if (snapshot.hasError) {
                 // Відобразити помилки

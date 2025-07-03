@@ -20,6 +20,7 @@ final class DependsProviders extends StatelessWidget {
       providers: [
         // Передаємо контейнер залежностей
         Provider.value(value: diContainer),
+        Provider.value(value: diContainer.appConfig),
       ],
       child: child,
     );
