@@ -1,9 +1,14 @@
+import 'package:bible_study_way/root/root_screen.dart';
 import 'package:core_debug/debug.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:highlights/highlights.dart';
+import 'package:lectures/lectures.dart';
+import 'package:main/main.dart';
+import 'package:more/more.dart';
 
 /// {@template app_router}
-///  AppRouter - клас для управління навігацією в додатку
+///  AppRouter - клас для управління навігацією у додатку.
 ///  [createRouter] - метод для створення екземпляра GoRouter
 /// {@endtemplate}
 class AppRouter {
@@ -13,8 +18,8 @@ class AppRouter {
   /// Ключ для доступу до корневого навігатора додатку
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
 
-  /// Начальний роут додатку
-  static String get initialLocation => 'main';
+  /// Начальний маршрут додатку
+  static String get initialLocation => MainRoutes.mainScreenPath;
 
   /// Метод для створення екземпляра GoRouter
   static GoRouter createRouter(DebugService debugService) {
@@ -23,6 +28,18 @@ class AppRouter {
       initialLocation: initialLocation,
       observers: [debugService.routeObserver],
       routes: [
+        StatefulShellRoute.indexedStack(
+          parentNavigatorKey: rootNavigatorKey,
+          builder: (context, state, navigationShell) =>
+              RootScreen(navigationShell: navigationShell),
+          branches: [
+            MainRoutes.buildShellBranch(),
+            LecturesRoutes.buildShellBranch(),
+            HighlightsRoutes.buildShellBranch(),
+            MoreRoutes.buildShellBranch(),
+          ],
+        ),
+        DebugRoutes.buildRoutes(),
       ],
     );
   }
