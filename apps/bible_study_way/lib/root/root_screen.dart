@@ -71,6 +71,11 @@ class RootScreen extends StatelessWidget {
             label: context.l10n.highlights,
           ), // HighlightsScreen
           BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_border_outlined),
+            activeIcon: Icon(Icons.favorite),
+            label: context.l10n.favorites,
+          ), // FavoritesScreen
+          BottomNavigationBarItem(
             icon: Icon(Icons.menu_open_outlined),
             activeIcon: Icon(Icons.menu_open),
             label: context.l10n.more,

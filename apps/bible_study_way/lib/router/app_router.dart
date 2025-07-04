@@ -1,5 +1,6 @@
 import 'package:bible_study_way/root/root_screen.dart';
 import 'package:core_debug/debug.dart';
+import 'package:favorites/favorites.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:highlights/highlights.dart';
@@ -36,6 +37,7 @@ class AppRouter {
             MainRoutes.buildShellBranch(),
             LecturesRoutes.buildShellBranch(),
             HighlightsRoutes.buildShellBranch(),
+            FavoritesRoutes.buildShellBranch(),
             MoreRoutes.buildShellBranch(),
           ],
         ),

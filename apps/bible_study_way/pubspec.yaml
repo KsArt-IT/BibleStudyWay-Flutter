@@ -49,6 +49,9 @@ dependencies:
   # Highlights
   highlights:
     path: ../../packages/features/highlights
+  # Favorites
+  favorites:
+    path: ../../packages/features/favorites
   # More
   more:
     path: ../../packages/features/more
