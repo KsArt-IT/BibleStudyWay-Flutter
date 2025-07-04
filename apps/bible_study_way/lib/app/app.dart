@@ -66,8 +66,7 @@ class _AppState extends State<App> {
             case ConnectionState.waiting:
             case ConnectionState.active:
               // Поки ініціалізація показуємо Splash
-              // return const SplashScreen();
-              return const Center(child: CircularProgressIndicator());
+              return const SplashScreen();
             case ConnectionState.done:
               if (snapshot.hasError || snapshot.data == null) {
                 // Відобразити помилки
