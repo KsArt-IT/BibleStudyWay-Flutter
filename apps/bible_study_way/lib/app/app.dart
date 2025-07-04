@@ -1,6 +1,7 @@
+import 'package:bible_study_way/app/app_material.dart';
 import 'package:bible_study_way/app/app_providers.dart';
-import 'package:bible_study_way/app/depends_providers.dart';
 import 'package:bible_study_way/di/di.dart';
+import 'package:bible_study_way/di/di_providers.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_shared/shared.dart';
 import 'package:core_theme/theme.dart';
@@ -68,32 +69,26 @@ class _AppState extends State<App> {
               // return const SplashScreen();
               return const Center(child: CircularProgressIndicator());
             case ConnectionState.done:
-              if (snapshot.hasError) {
+              if (snapshot.hasError || snapshot.data == null) {
                 // Відобразити помилки
                 return ErrorScreen(
-                  error: snapshot.error,
+                  error: snapshot.hasError
+                      ? snapshot.error
+                      : 'Помилка ініціалізації залежностей',
                   stackTrace: snapshot.stackTrace,
                   onRetry: _retryInit,
                 );
               }
-
-              final diContainer = snapshot.data;
-              if (diContainer == null) {
-                // Відобразити помилки
-                return ErrorScreen(
-                  error:
-                      'Помилка ініціалізації залежностей, diContainer = null',
-                  stackTrace: null,
-                  onRetry: _retryInit,
-                );
-              }
-              return DependsProviders(
-                diContainer: diContainer,
-                // Зміни локалізації у додатку
+              // Впровадження глобальних залежностей
+              return DiProviders(
+                diContainer: snapshot.data!,
+                // Впровадження локалізації
                 child: LocalizationConsumer(
-                  builder: () =>
-                      // Зміни теми у додатку
-                      ThemeConsumer(builder: () => _App(router: widget.router)),
+                  // Впровадження теми
+                  builder: () => ThemeConsumer(
+                    // Відображення віджету додатку
+                    builder: () => AppMaterial(router: widget.router),
+                  ),
                 ),
               );
           }
@@ -108,34 +103,5 @@ class _AppState extends State<App> {
     setState(() {
       _initFuture = widget.initDependencies();
     });
-  }
-}
-
-/// {@template app_internal}
-/// Внутрішній віджет додатку, що відображає основний інтерфейс
-/// після успішної ініціалізації залежностей.
-///
-/// Налаштовує MaterialApp з роутером, темами та локалізацією.
-/// {@endtemplate}
-class _App extends StatelessWidget {
-  /// {@macro app_internal}
-  const _App({required this.router});
-
-  /// Роутер для навігації між екранами у додатку
-  final GoRouter router;
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
-      onGenerateTitle: (context) => context.l10n.appTitle,
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
-      darkTheme: AppTheme.dark,
-      theme: AppTheme.light,
-      themeMode: context.theme.themeMode,
-      locale: context.localization.locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-    );
   }
 }

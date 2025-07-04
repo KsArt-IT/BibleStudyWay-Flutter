@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// Клас для впровадження глобальних залежностей
-final class DependsProviders extends StatelessWidget {
-  const DependsProviders({
-    required this.child,
+final class DiProviders extends StatelessWidget {
+  const DiProviders({
     required this.diContainer,
+    required this.child,
     super.key,
   });
 
-  final Widget child;
   final DiContainer diContainer;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {

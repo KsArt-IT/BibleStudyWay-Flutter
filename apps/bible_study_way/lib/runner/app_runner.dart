@@ -50,7 +50,7 @@ class AppRunner {
   Future<void> run() async {
     try {
       WidgetsFlutterBinding.ensureInitialized();
-      
+
       // Ініціалізація сервісу налагодження додатку
       _debugService = DebugServiceImpl();
 
