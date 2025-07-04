@@ -1,0 +1,30 @@
+name: favorites
+description: Favorites screen.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.8.1
+  flutter: ^3.32.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Navigation
+  go_router: ^16.0.0
+
+  # Theme app
+  core_theme:
+    path: ../../core/theme
+  # Localization app
+  core_localization:
+    path: ../../core/localization
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
