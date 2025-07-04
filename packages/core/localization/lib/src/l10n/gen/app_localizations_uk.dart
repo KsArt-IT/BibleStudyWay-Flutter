@@ -30,6 +30,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get highlights => 'Основне';
 
   @override
+  String get favorites => 'Вибране';
+
+  @override
   String get more => 'Ще';
 
   @override
@@ -42,7 +45,13 @@ class AppLocalizationsUk extends AppLocalizations {
   String get l_4 => '---Highlights screen---';
 
   @override
-  String get l_5 => '---More screen---';
+  String get l_5 => '---Favorites screen---';
+
+  @override
+  String get l_6 => '---More screen---';
+
+  @override
+  String get l_7 => '---Edit/Add lecture screen---';
 
   @override
   String get l_n => '---';

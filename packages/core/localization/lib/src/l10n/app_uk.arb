@@ -13,11 +13,14 @@
     "main": "Головна",
     "lectures": "Лекції",
     "highlights": "Основне",
+    "favorites": "Вибране",
     "more": "Ще",
     "l_2": "---Main screen---",
     "l_3": "---Lectures screen---",
     "l_4": "---Highlights screen---",
-    "l_5": "---More screen---",
+    "l_5": "---Favorites screen---",
+    "l_6": "---More screen---",
+    "l_7": "---Edit/Add lecture screen---",
     
     "l_n": "---"
 }

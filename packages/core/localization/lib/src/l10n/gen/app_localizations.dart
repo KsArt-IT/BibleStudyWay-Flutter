@@ -142,6 +142,12 @@ abstract class AppLocalizations {
   /// **'Highlights'**
   String get highlights;
 
+  /// No description provided for @favorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favorites;
+
   /// No description provided for @more.
   ///
   /// In en, this message translates to:
@@ -169,8 +175,20 @@ abstract class AppLocalizations {
   /// No description provided for @l_5.
   ///
   /// In en, this message translates to:
-  /// **'---More screen---'**
+  /// **'---Favorites screen---'**
   String get l_5;
+
+  /// No description provided for @l_6.
+  ///
+  /// In en, this message translates to:
+  /// **'---More screen---'**
+  String get l_6;
+
+  /// No description provided for @l_7.
+  ///
+  /// In en, this message translates to:
+  /// **'---Edit/Add lecture screen---'**
+  String get l_7;
 
   /// No description provided for @l_n.
   ///

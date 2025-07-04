@@ -30,6 +30,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get highlights => 'Основное';
 
   @override
+  String get favorites => 'Избранное';
+
+  @override
   String get more => 'Ещё';
 
   @override
@@ -42,7 +45,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get l_4 => '---Highlights screen---';
 
   @override
-  String get l_5 => '---More screen---';
+  String get l_5 => '---Favorites screen---';
+
+  @override
+  String get l_6 => '---More screen---';
+
+  @override
+  String get l_7 => '---Edit/Add lecture screen---';
 
   @override
   String get l_n => '---';
