@@ -14,6 +14,7 @@ abstract final class MainRoutes {
   /// Приймає:
   /// - [routes] - вкладені маршрути
   static StatefulShellBranch buildShellBranch({
+    required final List<Widget> children,
     List<RouteBase> routes = const [],
     List<NavigatorObserver>? observers,
   }) => StatefulShellBranch(
@@ -24,7 +25,7 @@ abstract final class MainRoutes {
       GoRoute(
         path: mainScreenPath,
         name: mainScreenName,
-        builder: (context, state) => const MainScreen(),
+        builder: (context, state) => MainScreen(children: children),
       ),
     ],
   );
