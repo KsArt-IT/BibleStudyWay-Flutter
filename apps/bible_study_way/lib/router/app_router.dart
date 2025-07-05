@@ -7,6 +7,7 @@ import 'package:highlights/highlights.dart';
 import 'package:lectures/lectures.dart';
 import 'package:main/main.dart';
 import 'package:more/more.dart';
+import 'package:progress/progress.dart';
 
 /// {@template app_router}
 ///  AppRouter - клас для управління навігацією у додатку.
@@ -34,7 +35,16 @@ class AppRouter {
           builder: (context, state, navigationShell) =>
               RootScreen(navigationShell: navigationShell),
           branches: [
-            MainRoutes.buildShellBranch(),
+            MainRoutes.buildShellBranch(
+              children: [
+                ProgressPreviewScreen(),
+                //
+              ],
+              routes: [
+                ProgressRoutes.buildRoutes(),
+                //
+              ],
+            ),
             LecturesRoutes.buildShellBranch(),
             HighlightsRoutes.buildShellBranch(),
             FavoritesRoutes.buildShellBranch(),
