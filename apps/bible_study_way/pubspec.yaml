@@ -40,9 +40,13 @@ dependencies:
   # SplashScreen
   splash:
     path: ../../packages/features/splash
-  # Main
+  # Main: Progress, 
   main:
     path: ../../packages/features/main
+  # Progress
+  progress:
+    path: ../../packages/features/progress
+
   # Lectures
   lectures:
     path: ../../packages/features/lectures
