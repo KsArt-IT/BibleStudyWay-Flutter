@@ -26,6 +26,9 @@ dependencies:
   # Config app
   core_config:
     path: ../../packages/core/config
+  # Settings app
+  core_settings:
+    path: ../../packages/core/settings
   # Theme app
   core_theme:
     path: ../../packages/core/theme
