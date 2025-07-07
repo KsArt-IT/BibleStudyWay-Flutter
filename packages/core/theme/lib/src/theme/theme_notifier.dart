@@ -1,3 +1,4 @@
+import 'package:core_settings/settings.dart';
 import 'package:flutter/material.dart';
 
 /// {@template theme_notifier}
@@ -10,7 +11,14 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 final class ThemeNotifier extends ChangeNotifier {
   /// {@macro theme_notifier}
-  ThemeNotifier();
+  ThemeNotifier({required SettingsRepository settingsRepository})
+    : _settingsRepository = settingsRepository {
+    _settingsRepository.loadTheme().then((darkMode) {
+      changeTheme(darkMode: darkMode);
+    });
+  }
+
+  final SettingsRepository _settingsRepository;
 
   /// Поточний режим теми у додатку
   /// За замовчуванням використовується системна тема
@@ -27,6 +35,7 @@ final class ThemeNotifier extends ChangeNotifier {
     _themeMode = _themeMode == ThemeMode.light
         ? ThemeMode.dark
         : ThemeMode.light;
+    _settingsRepository.saveTheme(_themeMode == ThemeMode.dark);
     notifyListeners();
   }
 
@@ -35,11 +44,15 @@ final class ThemeNotifier extends ChangeNotifier {
   /// Встановлює системну, або темну чи світлу тему.
   /// Без параметрів використовується системна тему.
   void changeTheme({bool? darkMode}) {
-    _themeMode = darkMode != null
+    final newMode = darkMode != null
         ? darkMode
               ? ThemeMode.dark
               : ThemeMode.light
         : ThemeMode.system;
-    notifyListeners();
+    if (_themeMode != newMode) {
+      _themeMode = newMode;
+      _settingsRepository.saveTheme(darkMode);
+      notifyListeners();
+    }
   }
 }
