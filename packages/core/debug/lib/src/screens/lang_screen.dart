@@ -27,21 +27,21 @@ class LangScreen extends StatelessWidget {
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.localization.changeLocal(const Locale('ru', 'RU'));
+                context.localization.changeLocale(const Locale('ru', 'RU'));
               },
               child: const Text('Змінити мову на Українську'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.localization.changeLocal(const Locale('ru', 'RU'));
+                context.localization.changeLocale(const Locale('ru', 'RU'));
               },
               child: const Text('Змінити мову на Русский'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                context.localization.changeLocal(const Locale('en', 'EN'));
+                context.localization.changeLocale(const Locale('en', 'EN'));
               },
               child: const Text('Змінити мову на Англійську'),
             ),

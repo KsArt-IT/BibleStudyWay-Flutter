@@ -14,7 +14,7 @@ final class LocalizationNotifier extends ChangeNotifier {
   LocalizationNotifier({required SettingsRepository settingsRepository})
     : _settingsRepository = settingsRepository {
     _settingsRepository.loadLocale().then((locale) {
-      changeLocal(locale != null ? Locale(locale) : null);
+      changeLocale(locale != null ? Locale(locale) : null);
     });
   }
 
@@ -35,7 +35,7 @@ final class LocalizationNotifier extends ChangeNotifier {
   /// - [locale] - нову локаль для встановлення у додатку
   ///
   /// повідомляє всіх підписників про зміну локалі.
-  void changeLocal(Locale? locale) {
+  void changeLocale(Locale? locale) {
     final newLocale =
         locale ?? WidgetsBinding.instance.platformDispatcher.locale;
     if (_locale != newLocale) {
