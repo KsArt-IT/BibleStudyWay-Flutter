@@ -1,3 +1,4 @@
+import 'package:bible_study_way/di/di.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,14 @@ final class AppProviders extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeNotifier(),
+          create: (_) => ThemeNotifier(
+            settingsRepository: context.di.repositories.settingsRepository,
+          ),
         ), // Провайдер для теми
         ChangeNotifierProvider(
-          create: (_) => LocalizationNotifier(),
+          create: (_) => LocalizationNotifier(
+            settingsRepository: context.di.repositories.settingsRepository,
+          ),
         ), // Провайдер для локалізації
       ],
       child: child,
