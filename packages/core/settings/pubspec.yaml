@@ -11,6 +11,19 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Storage
+  get_storage: ^2.1.1
+
+  # Navigation
+  go_router: ^16.0.0
+
+  # Theme app
+  core_theme:
+    path: ../../core/theme
+  # Localization app
+  core_localization:
+    path: ../../core/localization
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
