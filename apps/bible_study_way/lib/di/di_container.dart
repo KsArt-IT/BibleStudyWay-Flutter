@@ -1,4 +1,4 @@
-import 'package:bible_study_way/di/di_typedefs.dart';
+import 'package:bible_study_way/di/di.dart';
 import 'package:core_config/config.dart';
 import 'package:core_debug/debug.dart';
 
@@ -10,7 +10,7 @@ import 'package:core_debug/debug.dart';
 final class DiContainer {
   /// {@macro dependencies_container}
   DiContainer({required this.env, required DebugService dService})
-      : debugService = dService;
+    : debugService = dService;
   final AppEnv env;
 
   /// Сервіс для налагодження, отримуємо з конструктора
@@ -18,6 +18,12 @@ final class DiContainer {
 
   /// Конфігурація додатку
   late final AppConfig appConfig;
+
+  /// Сервіси додатку
+  late final DiServices services;
+
+  /// Репозиторії додатку
+  late final DiRepositories repositories;
 
   /// Метод для ініціалізації залежностей
   Future<void> init({
@@ -32,8 +38,17 @@ final class DiContainer {
       AppEnv.stage => AppConfigStage(),
     };
 
-    onProgress('Ініціалізація середовища завершена!');
-    // throw Exception('Тестова – помилка ініціалізації залежностей');
+    // Ініціалізація сервісів
+    services = DiServices();
+    await services.init(
+      onProgress: onProgress,
+      onError: onError,
+      diContainer: this,
+    );
+
+    // Ініціалізація репозиторіїв
+    repositories = DiRepositories()
+      ..init(onProgress: onProgress, onError: onError, diContainer: this);
 
     onComplete('Ініціалізація залежностей завершена!');
   }
