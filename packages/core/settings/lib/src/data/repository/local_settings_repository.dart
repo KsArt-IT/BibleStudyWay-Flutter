@@ -1,6 +1,6 @@
+import 'package:core_settings/src/data/service/storage_service.dart';
 import 'package:core_settings/src/domain/models/app_settings.dart';
 import 'package:core_settings/src/domain/repository/settings_repository.dart';
-import 'package:core_settings/src/data/service/storage_service.dart';
 
 /// {@template local_settings_repository}
 /// Сервіс для роботи з налаштуваннями приложения
@@ -13,7 +13,8 @@ final class LocalSettingsRepository implements SettingsRepository {
   final StorageService _storageService;
 
   /// Назва репозиторію
-  static const name = 'LocalSettingsRepository';
+  @override
+  String get name => 'LocalSettingsRepository';
 
   @override
   Future<AppSettings> loadSettings() async {

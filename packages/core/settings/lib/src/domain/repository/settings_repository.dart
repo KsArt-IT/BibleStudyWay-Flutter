@@ -1,12 +1,10 @@
+import 'package:core_common/common.dart';
 import 'package:core_settings/src/domain/models/app_settings.dart';
 
 /// {@template settings_repository}
 /// Інтерфейс для роботи з налаштуваннями приложения
 /// {@endtemplate}
-abstract interface class SettingsRepository {
-  /// Найменування інтерфейсу
-  static const name = 'SettingsRepository';
-
+abstract interface class SettingsRepository with DiBaseRepo {
   /// Завантаження налаштувань
   Future<AppSettings> loadSettings();
 
