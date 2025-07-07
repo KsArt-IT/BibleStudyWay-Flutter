@@ -18,6 +18,10 @@ dependencies:
   # State Management
   provider: ^6.1.5
 
+  # Core
+  core_settings:
+    path: ../../core/settings
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
