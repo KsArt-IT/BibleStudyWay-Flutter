@@ -1,3 +1,4 @@
+import 'package:core_settings/settings.dart';
 import 'package:flutter/material.dart';
 
 /// {@template localization_notifier}
@@ -10,7 +11,14 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 final class LocalizationNotifier extends ChangeNotifier {
   /// {@macro localization_notifier}
-  LocalizationNotifier();
+  LocalizationNotifier({required SettingsRepository settingsRepository})
+    : _settingsRepository = settingsRepository {
+    _settingsRepository.loadLocale().then((locale) {
+      changeLocal(locale != null ? Locale(locale) : null);
+    });
+  }
+
+  final SettingsRepository _settingsRepository;
 
   /// Поточна локаль у додатку
   Locale _locale = WidgetsBinding.instance.platformDispatcher.locale;
@@ -28,7 +36,12 @@ final class LocalizationNotifier extends ChangeNotifier {
   ///
   /// повідомляє всіх підписників про зміну локалі.
   void changeLocal(Locale? locale) {
-    _locale = locale ?? WidgetsBinding.instance.platformDispatcher.locale;
-    notifyListeners();
+    final newLocale =
+        locale ?? WidgetsBinding.instance.platformDispatcher.locale;
+    if (_locale != newLocale) {
+      _locale = newLocale;
+      _settingsRepository.saveLocale(locale?.languageCode);
+      notifyListeners();
+    }
   }
 }
