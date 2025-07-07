@@ -56,31 +56,31 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    // Провайдери теми та локалізації
-    return AppProviders(
-      child: FutureBuilder<DiContainer>(
-        future: _initFuture,
-        builder: (_, snapshot) {
-          switch (snapshot.connectionState) {
-            case ConnectionState.none:
-            case ConnectionState.waiting:
-            case ConnectionState.active:
-              // Поки ініціалізація показуємо Splash
-              return const SplashScreen();
-            case ConnectionState.done:
-              if (snapshot.hasError || snapshot.data == null) {
-                // Відобразити помилки
-                return ErrorScreen(
-                  error: snapshot.hasError
-                      ? snapshot.error
-                      : 'Помилка ініціалізації залежностей',
-                  stackTrace: snapshot.stackTrace,
-                  onRetry: _retryInit,
-                );
-              }
-              // Впровадження глобальних залежностей
-              return DiProviders(
-                diContainer: snapshot.data!,
+    return FutureBuilder<DiContainer>(
+      future: _initFuture,
+      builder: (_, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.waiting:
+          case ConnectionState.active:
+            // Поки ініціалізація показуємо Splash
+            return const SplashScreen();
+          case ConnectionState.done:
+            if (snapshot.hasError || snapshot.data == null) {
+              // Відобразити помилки
+              return ErrorScreen(
+                error: snapshot.hasError
+                    ? snapshot.error
+                    : 'Помилка ініціалізації залежностей',
+                stackTrace: snapshot.stackTrace,
+                onRetry: _retryInit,
+              );
+            }
+            // Впровадження глобальних залежностей
+            return DiProviders(
+              diContainer: snapshot.data!,
+              // Провайдери теми та локалізації
+              child: AppProviders(
                 // Впровадження локалізації
                 child: LocalizationConsumer(
                   // Впровадження теми
@@ -89,10 +89,10 @@ class _AppState extends State<App> {
                     builder: () => AppMaterial(router: widget.router),
                   ),
                 ),
-              );
-          }
-        },
-      ),
+              ),
+            );
+        }
+      },
     );
   }
 
