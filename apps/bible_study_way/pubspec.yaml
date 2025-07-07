@@ -26,6 +26,9 @@ dependencies:
   # Config app
   core_config:
     path: ../../packages/core/config
+  # Common
+  core_common:
+    path: ../../packages/core/common
   # Settings app
   core_settings:
     path: ../../packages/core/settings
