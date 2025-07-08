@@ -27,15 +27,21 @@ final class ThemeNotifier extends ChangeNotifier {
   /// Отримання поточного режиму теми
   ThemeMode get themeMode => _themeMode;
 
+  /// Чи використовується системна тема
+  bool get isSystemMode => _themeMode == ThemeMode.system;
+
+  /// Чи використовується темна тема
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
+
   /// Метод для перемикання теми у додатку.
   ///
   /// Перемикає між світлою та темною темою.
   /// Якщо поточна тема світла, перемикає на темну та навпаки.
   void toggleTheme() {
     // TODO: уточни поведінку при ThemeMode.system
-    _themeMode = _themeMode == ThemeMode.light
-        ? ThemeMode.dark
-        : ThemeMode.light;
+    _themeMode = _themeMode == ThemeMode.dark
+        ? ThemeMode.light
+        : ThemeMode.dark;
     _settingsRepository.saveTheme(_themeMode == ThemeMode.dark);
     notifyListeners();
   }
