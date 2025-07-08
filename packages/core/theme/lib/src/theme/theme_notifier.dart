@@ -32,6 +32,7 @@ final class ThemeNotifier extends ChangeNotifier {
   /// Перемикає між світлою та темною темою.
   /// Якщо поточна тема світла, перемикає на темну та навпаки.
   void toggleTheme() {
+    // TODO: уточни поведінку при ThemeMode.system
     _themeMode = _themeMode == ThemeMode.light
         ? ThemeMode.dark
         : ThemeMode.light;
