@@ -14,6 +14,7 @@ abstract final class MoreRoutes {
   /// Приймає:
   /// - [routes] - вкладені маршрути
   static StatefulShellBranch buildShellBranch({
+    required final List<Widget> children,
     List<RouteBase> routes = const [],
     List<NavigatorObserver>? observers,
   }) => StatefulShellBranch(
@@ -24,7 +25,7 @@ abstract final class MoreRoutes {
       GoRoute(
         path: _moreScreenPath,
         name: moreScreenName,
-        builder: (context, state) => const MoreScreen(),
+        builder: (context, state) => MoreScreen(children: children),
       ),
     ],
   );
