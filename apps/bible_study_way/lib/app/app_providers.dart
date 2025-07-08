@@ -12,17 +12,15 @@ final class AppProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final settingsRepo = context.di.repositories.settingsRepository;
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeNotifier(
-            settingsRepository: context.di.repositories.settingsRepository,
-          ),
+          create: (_) => ThemeNotifier(settingsRepository: settingsRepo),
         ), // Провайдер для теми
         ChangeNotifierProvider(
-          create: (_) => LocalizationNotifier(
-            settingsRepository: context.di.repositories.settingsRepository,
-          ),
+          create: (_) => LocalizationNotifier(settingsRepository: settingsRepo),
         ), // Провайдер для локалізації
       ],
       child: child,
