@@ -66,13 +66,18 @@ class _AppState extends State<App> {
             // Поки ініціалізація показуємо Splash
             return const SplashScreen();
           case ConnectionState.done:
-            if (snapshot.hasError || snapshot.data == null) {
-              // Відобразити помилки
+            // Відобразити помилки
+            if (snapshot.hasError) {
               return ErrorScreen(
-                error: snapshot.hasError
-                    ? snapshot.error
-                    : 'Помилка ініціалізації залежностей',
+                error: snapshot.error,
                 stackTrace: snapshot.stackTrace,
+                onRetry: _retryInit,
+              );
+            }
+            if (snapshot.data == null) {
+              return ErrorScreen(
+                error: 'Залежності не були створені.',
+                stackTrace: null,
                 onRetry: _retryInit,
               );
             }
