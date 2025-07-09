@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lang => 'English';
 
   @override
+  String get copyright => 'StudyWay.life';
+
+  @override
   String get appTitle => 'Bible Study Way';
 
   @override
@@ -49,6 +52,24 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get l_6 => '---More screen---';
+
+  @override
+  String get l_6_1 => '---Settings screen---';
+
+  @override
+  String get settingsApp => 'Application Settings';
+
+  @override
+  String get themeApp => 'Application theme';
+
+  @override
+  String get systemMode => 'Use system settings';
+
+  @override
+  String get darkMode => 'Dark mode';
+
+  @override
+  String get languageApp => 'Application language';
 
   @override
   String get l_7 => '---Edit/Add lecture screen---';

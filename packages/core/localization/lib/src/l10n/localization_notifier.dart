@@ -20,6 +20,10 @@ final class LocalizationNotifier extends ChangeNotifier {
 
   final SettingsRepository _settingsRepository;
 
+  /// Системний режим
+  bool _isSystemMode = true;
+  bool get isSystemMode => _isSystemMode;
+
   /// Поточна локаль у додатку
   Locale _locale = WidgetsBinding.instance.platformDispatcher.locale;
 
@@ -38,7 +42,8 @@ final class LocalizationNotifier extends ChangeNotifier {
   void changeLocale(Locale? locale) {
     final newLocale =
         locale ?? WidgetsBinding.instance.platformDispatcher.locale;
-    if (_locale != newLocale) {
+    if (_locale != newLocale || _isSystemMode != (locale == null)) {
+      _isSystemMode = locale == null;
       _locale = newLocale;
       _settingsRepository.saveLocale(locale?.languageCode);
       notifyListeners();

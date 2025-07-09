@@ -106,6 +106,12 @@ abstract class AppLocalizations {
   /// **'English'**
   String get lang;
 
+  /// Copyright text
+  ///
+  /// In en, this message translates to:
+  /// **'StudyWay.life'**
+  String get copyright;
+
   /// Study the Bible with us, Study Way Life.
   ///
   /// In en, this message translates to:
@@ -183,6 +189,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'---More screen---'**
   String get l_6;
+
+  /// No description provided for @l_6_1.
+  ///
+  /// In en, this message translates to:
+  /// **'---Settings screen---'**
+  String get l_6_1;
+
+  /// No description provided for @settingsApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Application Settings'**
+  String get settingsApp;
+
+  /// No description provided for @themeApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Application theme'**
+  String get themeApp;
+
+  /// No description provided for @systemMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Use system settings'**
+  String get systemMode;
+
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark mode'**
+  String get darkMode;
+
+  /// No description provided for @languageApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Application language'**
+  String get languageApp;
 
   /// No description provided for @l_7.
   ///

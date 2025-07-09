@@ -1,6 +1,10 @@
 {
     "@@locale": "ru",
     "lang": "Русский",
+    "copyright": "StudyWay.life",
+    "@copyright": {
+        "description": "Copyright text"
+    },
     "appTitle": "Bible Study Way",
     "@appTitle": {
         "description": "Изучай Библию вместе с нами, Study Way Life."
@@ -20,6 +24,12 @@
     "l_4": "---Highlights screen---",
     "l_5": "---Favorites screen---",
     "l_6": "---More screen---",
+    "l_6_1": "---Settings screen---",
+    "settingsApp": "Настройки приложения",
+    "themeApp": "Тема приложения",
+    "systemMode": "Использовать настройки системы",
+    "darkMode": "Тёмная тема",
+    "languageApp": "Язык приложения",
     "l_7": "---Edit/Add lecture screen---",
     "l_n": "---"
 }

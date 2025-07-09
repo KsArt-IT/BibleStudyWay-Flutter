@@ -1,6 +1,10 @@
 {
     "@@locale": "uk",
     "lang": "Українська",
+    "copyright": "StudyWay.life",
+    "@copyright": {
+        "description": "Copyright text"
+    },
     "appTitle": "Bible Study Way",
     "@appTitle": {
         "description": "Вивчай Біблію разом із нами, Study Way Life."
@@ -20,7 +24,12 @@
     "l_4": "---Highlights screen---",
     "l_5": "---Favorites screen---",
     "l_6": "---More screen---",
+    "l_6_1": "---Settings screen---",
+    "settingsApp": "Налаштування застосунку",
+    "themeApp": "Тема застосунку",
+    "systemMode": "Використовувати налаштування системи",
+    "darkMode": "Тема темна",
+    "languageApp": "Мова застосунку",
     "l_7": "---Edit/Add lecture screen---",
-    
     "l_n": "---"
 }

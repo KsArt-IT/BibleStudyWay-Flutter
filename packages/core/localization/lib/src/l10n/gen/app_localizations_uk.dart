@@ -12,6 +12,9 @@ class AppLocalizationsUk extends AppLocalizations {
   String get lang => 'Українська';
 
   @override
+  String get copyright => 'StudyWay.life';
+
+  @override
   String get appTitle => 'Bible Study Way';
 
   @override
@@ -49,6 +52,24 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get l_6 => '---More screen---';
+
+  @override
+  String get l_6_1 => '---Settings screen---';
+
+  @override
+  String get settingsApp => 'Налаштування застосунку';
+
+  @override
+  String get themeApp => 'Тема застосунку';
+
+  @override
+  String get systemMode => 'Використовувати налаштування системи';
+
+  @override
+  String get darkMode => 'Тема темна';
+
+  @override
+  String get languageApp => 'Мова застосунку';
 
   @override
   String get l_7 => '---Edit/Add lecture screen---';
