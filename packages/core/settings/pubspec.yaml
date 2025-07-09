@@ -17,6 +17,9 @@ dependencies:
   # Navigation
   go_router: ^16.0.0
 
+  # Provider
+  provider: ^6.1.5
+
   # Common
   core_common:
     path: ../../core/common
