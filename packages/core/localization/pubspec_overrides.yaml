@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: core_common,core_settings,core_theme
+dependency_overrides:
+  core_common:
+    path: ../common
+  core_settings:
+    path: ../settings
+  core_theme:
+    path: ../theme

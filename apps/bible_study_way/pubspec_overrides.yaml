@@ -1,14 +1,30 @@
-# melos_managed_dependency_overrides: core_config,core_debug,core_localization,core_shared,core_theme,splash
+# melos_managed_dependency_overrides: core_common,core_config,core_debug,core_localization,core_settings,core_shared,core_theme,favorites,highlights,lectures,main,more,progress,splash
 dependency_overrides:
+  core_common:
+    path: ../../packages/core/common
   core_config:
     path: ../../packages/core/config
   core_debug:
     path: ../../packages/core/debug
   core_localization:
     path: ../../packages/core/localization
+  core_settings:
+    path: ../../packages/core/settings
   core_shared:
     path: ../../packages/core/shared
   core_theme:
     path: ../../packages/core/theme
+  favorites:
+    path: ../../packages/features/favorites
+  highlights:
+    path: ../../packages/features/highlights
+  lectures:
+    path: ../../packages/features/lectures
+  main:
+    path: ../../packages/features/main
+  more:
+    path: ../../packages/features/more
+  progress:
+    path: ../../packages/features/progress
   splash:
     path: ../../packages/features/splash

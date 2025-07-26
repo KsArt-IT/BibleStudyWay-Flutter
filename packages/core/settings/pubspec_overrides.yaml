@@ -1,10 +1,8 @@
-# melos_managed_dependency_overrides: core_common,core_localization,core_settings,core_theme
+# melos_managed_dependency_overrides: core_common,core_localization,core_theme
 dependency_overrides:
   core_common:
     path: ../common
   core_localization:
     path: ../localization
-  core_settings:
-    path: ../settings
   core_theme:
     path: ../theme

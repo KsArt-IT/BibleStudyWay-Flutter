@@ -1,9 +1,13 @@
-# melos_managed_dependency_overrides: core_config,core_localization,core_shared,core_theme
+# melos_managed_dependency_overrides: core_common,core_config,core_localization,core_settings,core_shared,core_theme
 dependency_overrides:
+  core_common:
+    path: ../common
   core_config:
     path: ../config
   core_localization:
     path: ../localization
+  core_settings:
+    path: ../settings
   core_shared:
     path: ../shared
   core_theme:
