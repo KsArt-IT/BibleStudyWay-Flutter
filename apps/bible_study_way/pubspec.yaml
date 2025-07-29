@@ -46,6 +46,9 @@ dependencies:
   # SplashScreen
   splash:
     path: ../../packages/features/splash
+  # Auth: Login, Register, Forgot Password, Reset Password, Verify Email, Verify Phone, Verify Code
+  auth:
+    path: ../../packages/features/auth
   # Main: Progress, 
   main:
     path: ../../packages/features/main
