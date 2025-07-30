@@ -1,3 +1,4 @@
+import 'package:bible_study_way/di/app_context_ext.dart';
 import 'package:bible_study_way/root/root_screen.dart';
 import 'package:core_debug/debug.dart';
 import 'package:core_settings/settings.dart';
@@ -8,6 +9,7 @@ import 'package:highlights/highlights.dart';
 import 'package:lectures/lectures.dart';
 import 'package:main/main.dart';
 import 'package:more/more.dart';
+import 'package:auth/auth.dart';
 import 'package:progress/progress.dart';
 
 /// {@template app_router}
@@ -24,12 +26,25 @@ abstract final class AppRouter {
   /// Начальний маршрут додатку
   static String get initialLocation => MainRoutes.mainScreenPath;
 
+  /// Публичные маршруты, которые не требуют авторизации
+  static const _publicRoutes = [
+    AuthRoutes.loginScreenName,
+    AuthRoutes.registrationScreenName,
+    AuthRoutes.resetPasswordScreenName,
+  ];
+
+  /// Метод для перенаправления на маршрут авторизации, если пользователь не авторизован
+  static Future<String?> _redirect(BuildContext context, GoRouterState state) async {
+    if (_publicRoutes.any((route) => route == state.name)) return null;
+    return context.di.services.firebaseAuth.currentUser != null ? null : AuthRoutes.loginScreenName;
+  }
+
   /// Метод для створення екземпляра GoRouter
   static GoRouter createRouter(DebugService debugService) {
     return GoRouter(
       navigatorKey: rootNavigatorKey,
-      initialLocation:
-          WidgetsBinding.instance.platformDispatcher.defaultRouteName,
+      redirect: _redirect,
+      initialLocation: WidgetsBinding.instance.platformDispatcher.defaultRouteName,
       observers: [debugService.routeObserver],
       routes: [
         GoRoute(path: '/', redirect: (context, state) => initialLocation),
@@ -63,6 +78,7 @@ abstract final class AppRouter {
             ),
           ],
         ),
+        AuthRoutes.buildRoutes(),
         DebugRoutes.buildRoutes(),
       ],
     );
