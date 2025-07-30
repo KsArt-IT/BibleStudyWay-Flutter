@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 /// {@endtemplate}
 class AppMaterial extends StatelessWidget {
   /// {@macro app_internal}
-  const AppMaterial({required this.router});
+  const AppMaterial({required this.router, super.key});
 
   /// Роутер для навігації між екранами у додатку
   final GoRouter router;
