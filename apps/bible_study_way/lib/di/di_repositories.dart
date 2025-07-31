@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:bible_study_way/di/di.dart';
 import 'package:core_common/common.dart';
 import 'package:core_config/config.dart';
@@ -38,7 +39,7 @@ final class DiRepositories {
   late final SettingsRepository settingsRepository;
 
   /// Інтерфейс для роботи з репозиторієм авторизації
-  // late final AuthRepository authRepository;
+  late final AuthRepository authRepository;
 
   /// Метод для ініціалізації репозиторіїв у програмі.
   ///
@@ -54,6 +55,18 @@ final class DiRepositories {
     required OnError onError,
     required DiContainer diContainer,
   }) {
+    try {
+      // Инициализация репозитория для работы с Firebase Auth
+      authRepository = _lazyInitRepo<AuthRepository>(
+        environment: diContainer.env,
+        onProgress: onProgress,
+        mockFactory: MockFirebaseAuthRepository.new,
+        mainFactory: () => MockFirebaseAuthRepository(),
+      );
+    } on Object catch (error, stackTrace) {
+      onError('Помилка ініціалізації AuthRepository', error, stackTrace);
+      return;
+    }
     try {
       // Ініціалізація репозиторію сервісу управління токеном доступу
       settingsRepository = _lazyInitRepo<SettingsRepository>(
