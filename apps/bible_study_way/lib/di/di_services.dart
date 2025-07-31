@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:bible_study_way/di/di.dart';
 import 'package:core_settings/settings.dart';
 
@@ -16,6 +17,9 @@ final class DiServices {
   /// Сервис для роботи зі сховищем
   late final StorageService storageService;
 
+  /// Сервис для работы с Firebase Auth
+  late final FirebaseAuth firebaseAuth;
+
   /// Метод для ініціалізації сервісів в програмі.
   ///
   /// Приймає:
@@ -31,14 +35,17 @@ final class DiServices {
     required DiContainer diContainer,
   }) async {
     try {
+      // Инициализировать сервис для работы с Firebase Auth и получить экземпляр FirebaseAuth
+      firebaseAuth = await MockFirebaseAuthService.init();
+    } on Object catch (error, stackTrace) {
+      onError('Помилка ініціалізації FirebaseAuthService', error, stackTrace);
+      return;
+    }
+    try {
       storageService = await GetStorageService.init();
       onProgress(GetStorageService.name);
     } on Object catch (error, stackTrace) {
-      onError(
-        'Помилка ініціалізації ${StorageService.name}',
-        error,
-        stackTrace,
-      );
+      onError('Помилка ініціалізації ${StorageService.name}', error, stackTrace);
       return;
     }
 
