@@ -2,7 +2,6 @@ import 'package:bible_study_way/di/di.dart';
 import 'package:core_config/config.dart';
 import 'package:core_debug/debug.dart';
 import 'package:core_localization/localization.dart';
-import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -59,7 +58,7 @@ class RootScreen extends StatelessWidget {
             icon: Icon(Icons.home_outlined),
             activeIcon: Icon(Icons.home),
             label: context.l10n.main,
-          ), // MainScreen: 
+          ), // MainScreen:
           BottomNavigationBarItem(
             icon: Icon(Icons.view_comfy_outlined),
             activeIcon: Icon(Icons.view_comfy),
