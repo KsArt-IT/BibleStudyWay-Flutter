@@ -42,6 +42,7 @@ abstract final class AppRouter {
   /// Метод для створення екземпляра GoRouter
   static GoRouter createRouter(DebugService debugService) {
     return GoRouter(
+      debugLogDiagnostics: true,
       navigatorKey: rootNavigatorKey,
       redirect: _redirect,
       initialLocation: WidgetsBinding.instance.platformDispatcher.defaultRouteName,
