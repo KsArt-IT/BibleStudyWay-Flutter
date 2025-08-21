@@ -4,14 +4,14 @@
 final class AuthUser {
   /// {@macro auth_user}
   const AuthUser({
-    required this.id,
+    required this.uid,
     required this.email,
     required this.name,
-    required this.avatar,
+    required this.photoUrl,
   });
 
-  final String id;
+  final String uid;
   final String email;
   final String name;
-  final String avatar;
+  final String? photoUrl;
 }
