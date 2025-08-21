@@ -29,12 +29,9 @@ abstract interface class AuthRepository with DiBaseRepo {
   /// Надіслати [email] для скидання пароля
   Future<Result<void>> sendPasswordResetEmail(String email);
 
-  /// Оновити [email]
-  Future<Result<void>> updateEmail({required String email});
-
   /// Оновити [name]
   Future<Result<void>> updateName({required String name});
 
-  /// Оновити [avatar]
-  Future<Result<void>> updateAvatar({required String avatar});
+  /// Оновити [photoURL]
+  Future<Result<void>> updatePhotoURL({required String photoURL});
 }
