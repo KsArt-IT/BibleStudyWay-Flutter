@@ -8,13 +8,16 @@ abstract interface class AuthRepository with DiBaseRepo {
   /// Отримати поточного користувача
   Future<Result<AuthUser>> getCurrentUser();
 
-  /// Увійти в систему за допомогою email та пароля
+  /// Оновити текучого користувача
+  Future<Result<AuthUser>> refreshUser();
+
+  /// Увійти в систему за допомогою [email] та [password]
   Future<Result<AuthUser>> signInWithEmailAndPassword({
     required String email,
     required String password,
   });
 
-  /// Зареєструватися за допомогою [email] та пароля
+  /// Зареєструватися за допомогою [email] та [password]
   Future<Result<AuthUser>> signUpWithEmailAndPassword({
     required String email,
     required String password,
@@ -22,6 +25,9 @@ abstract interface class AuthRepository with DiBaseRepo {
 
   /// Увійти в систему за допомогою Google
   Future<Result<AuthUser>> signInWithGoogle();
+
+  /// Увійти в систему за допомогою Apple
+  Future<Result<AuthUser>> signInWithApple();
 
   /// Вийти із системи
   Future<Result<void>> signOut();
@@ -34,4 +40,7 @@ abstract interface class AuthRepository with DiBaseRepo {
 
   /// Оновити [photoURL]
   Future<Result<void>> updatePhotoURL({required String photoURL});
+
+  /// Видалити аккаунт
+  Future<Result<void>> deleteAccount();
 }
