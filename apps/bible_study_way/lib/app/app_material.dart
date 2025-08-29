@@ -1,3 +1,4 @@
+import 'package:core_common/common.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -11,16 +12,20 @@ import 'package:go_router/go_router.dart';
 /// {@endtemplate}
 class AppMaterial extends StatelessWidget {
   /// {@macro app_internal}
-  const AppMaterial({required this.router, super.key});
+  const AppMaterial({required this.router, required this.debug, super.key});
 
   /// Роутер для навігації між екранами у додатку
   final GoRouter router;
+
+  /// Режим тестування
+  final bool debug;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       onGenerateTitle: (context) => context.l10n.appTitle,
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: debug,
+      scaffoldMessengerKey: SnackBarManager.scaffoldMessengerKey,
       routerConfig: router,
       darkTheme: AppTheme.dark,
       theme: AppTheme.light,
