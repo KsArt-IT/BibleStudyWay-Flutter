@@ -22,7 +22,7 @@ class SplashProviders extends StatelessWidget {
         listener: (context, state) => switch (state) {
           RefreshUserInitial() => null,
           RefreshUserSuccess(user: final user) => context.go('/', extra: user),
-          RefreshUserFailure() => context.go(AuthRoutes.loginScreenName),
+          RefreshUserFailure() => context.goNamed(AuthRoutes.loginScreenName),
         },
         child: const SplashScreen(),
       ),
