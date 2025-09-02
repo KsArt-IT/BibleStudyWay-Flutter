@@ -101,20 +101,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   AppTextButton(
-                    label: l10n.forgotPassword,
+                    text: l10n.forgotPassword,
                     onPressed: () => context.goNamed(AuthRoutes.resetPasswordScreenName),
                     style: AppButtonStyle.text,
                   ),
                   const SizedBox(width: 16),
                   AppTextButton(
-                    label: l10n.registration,
+                    text: l10n.registration,
                     onPressed: () => context.goNamed(AuthRoutes.registrationScreenName),
                     style: AppButtonStyle.text,
                   ),
                 ],
               ),
               const SizedBox(height: 16),
-              AppTextField(label: l10n.email, controller: _emailController),
+              AppTextField(
+                label: l10n.email,
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+              ),
               const SizedBox(height: 16),
               AppPasswordTextField(label: l10n.password, controller: _passwordController),
               const SizedBox(height: 16),
@@ -128,11 +132,11 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  AppTextButton(label: l10n.apple, onPressed: () {}, style: AppButtonStyle.text),
+                  AppTextButton(text: l10n.apple, onPressed: () {}, style: AppButtonStyle.text),
                   const SizedBox(width: 16),
                   if (Platform.isAndroid)
                     AppTextButton(
-                      label: l10n.google,
+                      text: l10n.google,
                       onPressed: _onLoginGoogle,
                       style: AppButtonStyle.text,
                     ),
