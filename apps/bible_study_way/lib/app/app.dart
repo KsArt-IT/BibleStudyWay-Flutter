@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:bible_study_way/app/app_material.dart';
 import 'package:bible_study_way/app/app_providers.dart';
 import 'package:bible_study_way/di/di.dart';
@@ -7,7 +8,6 @@ import 'package:core_shared/shared.dart';
 import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:splash/splash.dart';
 
 /// {@template app}
 /// Головний віджет програми, який керує ініціалізацією залежностей
@@ -64,7 +64,7 @@ class _AppState extends State<App> {
           case ConnectionState.waiting:
           case ConnectionState.active:
             // Поки ініціалізація показуємо Splash
-            return const SplashScreen();
+            return SplashScreen(initial: true);
           case ConnectionState.done:
             // Відобразити помилки
             if (snapshot.hasError) {
@@ -91,7 +91,10 @@ class _AppState extends State<App> {
                   // Впровадження теми
                   builder: () => ThemeConsumer(
                     // Відображення віджету додатку
-                    builder: () => AppMaterial(router: widget.router),
+                    builder: () => AppMaterial(
+                      router: widget.router,
+                      debug: snapshot.data!.appConfig.debugMode,
+                    ),
                   ),
                 ),
               ),
