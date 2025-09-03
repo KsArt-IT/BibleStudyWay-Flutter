@@ -26,5 +26,4 @@ dependency_overrides:
     path: ../../packages/features/more
   progress:
     path: ../../packages/features/progress
-  splash:
-    path: ../../packages/features/splash
+  
