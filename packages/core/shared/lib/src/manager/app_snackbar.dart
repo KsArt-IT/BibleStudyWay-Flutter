@@ -139,8 +139,7 @@ class AppSnackBar extends StatefulWidget {
 /// {@template _app_snack_bar_state}
 /// Стан для віджета AppSnackBar
 /// {@endtemplate}
-class _AppSnackBarState extends State<AppSnackBar>
-    with SingleTickerProviderStateMixin {
+class _AppSnackBarState extends State<AppSnackBar> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _slideAnimation;
   Timer? _dismissTimer;
@@ -175,10 +174,10 @@ class _AppSnackBarState extends State<AppSnackBar>
     // Кінцева позиція снекбара - 15 пікселів нижче верхнього відступу
     final endPosition = topPadding + 15;
     // Створення анімації з використанням Tween
-    _slideAnimation =
-        Tween<double>(begin: startPosition, end: endPosition).animate(
-      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
-    );
+    _slideAnimation = Tween<double>(
+      begin: startPosition,
+      end: endPosition,
+    ).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeOut));
 
     _animationController.forward();
   }
@@ -232,10 +231,7 @@ class _AppSnackBarState extends State<AppSnackBar>
                   color: _getBackgroundColor(widget.type),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 12,
-                  horizontal: 16,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                 child: Row(
                   children: [
                     _Icon(type: widget.type),
@@ -289,21 +285,9 @@ class _Icon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (type) {
-      TypeSnackBar.success => const Icon(
-          Icons.check_circle,
-          color: Colors.white,
-          size: 32,
-        ),
-      TypeSnackBar.error => const Icon(
-          Icons.error,
-          color: Colors.white,
-          size: 32,
-        ),
-      TypeSnackBar.info => const Icon(
-          Icons.info,
-          color: Colors.white,
-          size: 32,
-        ),
+      TypeSnackBar.success => const Icon(Icons.check_circle, color: Colors.white, size: 32),
+      TypeSnackBar.error => const Icon(Icons.error, color: Colors.white, size: 32),
+      TypeSnackBar.info => const Icon(Icons.info, color: Colors.white, size: 32),
     };
   }
 }
