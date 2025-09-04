@@ -23,13 +23,18 @@ dependencies:
   # Common
   core_common:
     path: ../../core/common
-
+  # Shared widgets and screens
+  core_shared:
+    path: ../../core/shared
   # Theme app
   core_theme:
     path: ../../core/theme
   # Localization app
   core_localization:
     path: ../../core/localization
+  # Auth
+  auth:
+    path: ../../features/auth
 
 dev_dependencies:
   flutter_test:
