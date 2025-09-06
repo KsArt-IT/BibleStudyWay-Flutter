@@ -1,4 +1,4 @@
-import 'package:core_common/common.dart';
+import 'package:core_shared/shared.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class AppMaterial extends StatelessWidget {
       routerConfig: router,
       darkTheme: AppTheme.dark,
       theme: AppTheme.light,
-      themeMode: context.theme.themeMode,
+      themeMode: context.themeNotifier.themeMode,
       locale: context.localization.locale,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
