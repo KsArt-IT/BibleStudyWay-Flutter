@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:auth/auth.dart';
 import 'package:bible_study_way/di/di.dart';
+import 'package:bible_study_way/firebase_options.dart';
 import 'package:core_settings/settings.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 /// {@template di_services}
 /// Клас для ініціалізації та управління сервісами програми.
@@ -14,11 +18,14 @@ final class DiServices {
   /// {@macro di_services}
   DiServices();
 
-  /// Сервис для роботи зі сховищем
+  /// Сервіс для роботи зі сховищем
   late final StorageService storageService;
 
-  /// Сервис для работы с Firebase Auth
+  /// Сервіс для роботи з Firebase Auth
   late final FirebaseAuth firebaseAuth;
+
+  /// Сервіс для роботи з GoogleSignIn
+  late final GoogleSignIn googleSignIn;
 
   /// Метод для ініціалізації сервісів в програмі.
   ///
@@ -35,10 +42,27 @@ final class DiServices {
     required DiContainer diContainer,
   }) async {
     try {
-      // Инициализировать сервис для работы с Firebase Auth и получить экземпляр FirebaseAuth
-      firebaseAuth = await MockFirebaseAuthService.init();
+      // Ініціалізувати сервіс для роботи з Firebase Auth та отримати екземпляр FirebaseAuth
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+      firebaseAuth = FirebaseAuth.instance;
+      firebaseAuth.authStateChanges().listen((User? user) {
+        if (user == null) {
+          log('User is currently signed out!', name: 'FirebaseAuthService');
+        } else {
+          log('User is signed in!', name: 'FirebaseAuthService');
+        }
+      });
+      onProgress('FirebaseAuth');
     } on Object catch (error, stackTrace) {
       onError('Помилка ініціалізації FirebaseAuthService', error, stackTrace);
+      return;
+    }
+    try {
+      // Отримати екземпляр GoogleSignIn
+      googleSignIn = await GoogleService.init();
+      onProgress('GoogleSignIn');
+    } on Object catch (error, stackTrace) {
+      onError('Помилка ініціалізації GoogleSignIn', error, stackTrace);
       return;
     }
     try {
