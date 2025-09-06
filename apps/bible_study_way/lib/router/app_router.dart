@@ -1,4 +1,6 @@
-import 'package:bible_study_way/di/app_context_ext.dart';
+import 'dart:developer';
+
+import 'package:auth/auth.dart';
 import 'package:bible_study_way/root/root_screen.dart';
 import 'package:core_debug/debug.dart';
 import 'package:core_settings/settings.dart';
@@ -9,7 +11,6 @@ import 'package:highlights/highlights.dart';
 import 'package:lectures/lectures.dart';
 import 'package:main/main.dart';
 import 'package:more/more.dart';
-import 'package:auth/auth.dart';
 import 'package:progress/progress.dart';
 
 /// {@template app_router}
@@ -23,20 +24,42 @@ abstract final class AppRouter {
   /// Ключ для доступу до корневого навігатора додатку
   static final rootNavigatorKey = GlobalKey<NavigatorState>();
 
-  /// Начальний маршрут додатку
+  /// Початковий маршрут додатку
   static String get initialLocation => MainRoutes.mainScreenPath;
 
-  /// Публичные маршруты, которые не требуют авторизации
-  static const _publicRoutes = [
-    AuthRoutes.loginScreenName,
-    AuthRoutes.registrationScreenName,
-    AuthRoutes.resetPasswordScreenName,
-  ];
+  /// Флаг для проверки авторизации
+  static bool _isLogin = false;
+  static bool _isSplash = false;
 
   /// Метод для перенаправления на маршрут авторизации, если пользователь не авторизован
   static Future<String?> _redirect(BuildContext context, GoRouterState state) async {
-    if (_publicRoutes.any((route) => route == state.name)) return null;
-    return context.di.services.firebaseAuth.currentUser != null ? null : AuthRoutes.loginScreenName;
+    log('state.path: ${state.fullPath}', name: 'AppRouter');
+    // Якщо це перший запуск, то перенаправляємо на екран Splash
+    if (!_isSplash) {
+      _isSplash = true;
+      // Розморозка першого кадру
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        log('allowFirstFrame', name: 'AppRouter');
+        WidgetsBinding.instance.allowFirstFrame();
+      });
+      // Перевіряємо чи є користувач в системі
+      return AuthRoutes.splashScreenPath;
+    }
+    // Якщо користувач авторизований, то не перенаправляємо
+    if (state.extra != null && state.extra is AuthUser) {
+      _isLogin = true;
+      return null;
+    }
+    if ((state.fullPath?.startsWith(AuthRoutes.loginScreenPath) ?? false) ||
+        (state.fullPath == AuthRoutes.splashScreenPath)) {
+      // Якщо маршрут публічний, то скидаємо флаг авторизації
+      _isLogin = false;
+      return null;
+    }
+    // Якщо користувач вже авторизований, то не перенаправляємо
+    if (_isLogin) return null;
+    // Якщо користувач не авторизований, то перенаправляємо на екран авторизації
+    return AuthRoutes.loginScreenPath;
   }
 
   /// Метод для створення екземпляра GoRouter
@@ -81,6 +104,11 @@ abstract final class AppRouter {
         ),
         AuthRoutes.buildRoutes(),
         DebugRoutes.buildRoutes(),
+        GoRoute(
+          path: AuthRoutes.splashScreenPath,
+          name: AuthRoutes.splashScreenName,
+          builder: (context, state) => const SplashProviders(),
+        ),
       ],
     );
   }
