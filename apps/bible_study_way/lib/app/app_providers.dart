@@ -1,3 +1,4 @@
+import 'package:auth/auth.dart';
 import 'package:bible_study_way/di/di.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_theme/theme.dart';
@@ -12,16 +13,19 @@ final class AppProviders extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsRepo = context.di.repositories.settingsRepository;
+    final repositories = context.di.repositories;
 
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => ThemeNotifier(settingsRepository: settingsRepo),
+          create: (_) => ThemeNotifier(settingsRepository: repositories.settingsRepository),
         ), // Провайдер для теми
         ChangeNotifierProvider(
-          create: (_) => LocalizationNotifier(settingsRepository: settingsRepo),
+          create: (_) => LocalizationNotifier(settingsRepository: repositories.settingsRepository),
         ), // Провайдер для локалізації
+        // Провайдер для репозитория авторизации
+        Provider.value(value: repositories.authRepository),
+        Provider.value(value: SignOutUseCase(repositories.authRepository)),
       ],
       child: child,
     );
