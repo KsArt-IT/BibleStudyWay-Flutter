@@ -61,29 +61,25 @@ final class DiRepositories {
         environment: diContainer.env,
         onProgress: onProgress,
         mockFactory: MockFirebaseAuthRepository.new,
-        mainFactory: () => MockFirebaseAuthRepository(),
+        mainFactory: () => FirebaseAuthRepository(
+          firebaseAuth: diContainer.services.firebaseAuth,
+          googleSignIn: diContainer.services.googleSignIn,
+        ),
       );
     } on Object catch (error, stackTrace) {
       onError('Помилка ініціалізації AuthRepository', error, stackTrace);
-      return;
     }
     try {
       // Ініціалізація репозиторію сервісу управління токеном доступу
       settingsRepository = _lazyInitRepo<SettingsRepository>(
         mockFactory: MockSettingsRepository.new,
-        mainFactory: () => LocalSettingsRepository(
-          storage: diContainer.services.storageService,
-        ),
+        mainFactory: () => LocalSettingsRepository(storage: diContainer.services.storageService),
         onProgress: onProgress,
         environment: diContainer.env,
       );
       onProgress(settingsRepository.name);
     } on Object catch (error, stackTrace) {
-      onError(
-        'Помилка ініціалізації репозиторію SettingsRepository',
-        error,
-        stackTrace,
-      );
+      onError('Помилка ініціалізації репозиторію SettingsRepository', error, stackTrace);
     }
 
     onProgress(
@@ -112,10 +108,9 @@ final class DiRepositories {
     final mainRepo = mainFactory();
 
     final repo = switch (environment) {
-      AppEnv.dev => mockRepo,
+      AppEnv.dev => mainRepo,//mockRepo,
       AppEnv.prod => mainRepo,
-      AppEnv.stage =>
-        _mockReposToSwitch.contains(mockRepo.name) ? mockRepo : mainRepo,
+      AppEnv.stage => _mockReposToSwitch.contains(mockRepo.name) ? mockRepo : mainRepo,
     };
 
     onProgress(repo.name);
