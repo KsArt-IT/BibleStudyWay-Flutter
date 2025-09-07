@@ -1,7 +1,7 @@
 name: auth
 description: Auth - Login, Register, Forgot Password, Reset Password, Verify Email, Verify Phone, Verify Code.
 version: 0.0.1
-homepage:
+homepage: https://github.com/KsArt-IT/BibleStudyWay-Flutter
 
 environment:
   sdk: ^3.8.1
@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
 
   # Navigation
-  go_router: ^16.0.0
+  go_router: ^16.2.1
   # State Management
   flutter_bloc: ^9.1.1
   bloc: ^9.0.0
@@ -20,8 +20,8 @@ dependencies:
   equatable: ^2.0.7
 
   # Firebase
-  firebase_core: ^4.0.0
-  firebase_auth: ^6.0.0
+  firebase_core: ^4.1.0
+  firebase_auth: ^6.0.2
   # firebase_storage: ^13.0.0
   # cloud_firestore: ^6.0.0
 
@@ -35,6 +35,9 @@ dependencies:
   # Theme app
   core_theme:
     path: ../../core/theme
+  # Shared widgets and screens
+  core_shared:
+    path: ../../core/shared
   # Localization app
   core_localization:
     path: ../../core/localization
