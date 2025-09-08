@@ -1,35 +1,90 @@
 {
-    "@@locale": "uk",
-    "lang": "Українська",
-    "copyright": "StudyWay.life",
-    "@copyright": {
-        "description": "Copyright text"
-    },
-    "appTitle": "Bible Study Way",
-    "@appTitle": {
-        "description": "Вивчай Біблію разом із нами, Study Way Life."
-    },
-    "helloWorld": "Привіт, світ!",
-    "@helloWorld": {
-        "description": "Привітання для нового програміста"
-    },
-    "l_1": "---Bottom navigation---",
-    "main": "Головна",
-    "lectures": "Лекції",
-    "highlights": "Основне",
-    "favorites": "Вибране",
-    "more": "Ще",
-    "l_2": "---Main screen---",
-    "l_3": "---Lectures screen---",
-    "l_4": "---Highlights screen---",
-    "l_5": "---Favorites screen---",
-    "l_6": "---More screen---",
-    "l_6_1": "---Settings screen---",
-    "settingsApp": "Налаштування застосунку",
-    "themeApp": "Тема застосунку",
-    "systemMode": "Використовувати налаштування системи",
-    "darkMode": "Тема темна",
-    "languageApp": "Мова застосунку",
-    "l_7": "---Edit/Add lecture screen---",
-    "l_n": "---"
+  "@@locale": "uk",
+  "lang": "Українська",
+  "copyright": "StudyWay.life",
+  "@copyright": {
+      "description": "Copyright text"
+  },
+  "appTitle": "Bible Study Way",
+  "@appTitle": {
+      "description": "Вивчай Біблію разом із нами, Study Way Life."
+  },
+  "helloWorld": "Привіт, світ!",
+  "@helloWorld": {
+      "description": "Привітання для нового програміста"
+  },
+    
+  "l_exception": "----------",
+  "exceptionGeneral": "An error occurred, please try again later.",
+  "exceptionDecodeEntityGeneral": "Could not decode entity",
+  "exceptionDecodeEntity": "Could not decode entity: {entityName}",
+  "@exceptionDecodeEntity": {
+    "placeholders": {
+      "entityName": {
+        "type": "String"
+      }
+    }
+  },
+  "exceptionHttpGeneral": "A network error occurred during the request",
+  "exceptionHttpNotFound": "The requested resource was not found",
+  "exceptionHttpForbidden": "You don't have permissions to perform this action",
+  "exceptionHttpUnauthorized": "This request was not authorized",
+  "exceptionAuthEmailExists": "The provided email is already in use",
+  "exceptionAuthInvalidCredentials": "Invalid login credentials",
+  "exceptionAuthInternalError": "An internal error occurred",
+  "exceptionAuthInvalidEmail": "The provided email is invalid",
+  "exceptionAuthInvalidPassword": "The provided password is invalid",
+  "exceptionAuthInvalidPhone": "The provided phone number is invalid",
+  "exceptionAuthPhoneExists": "The provided phone number is already in use",
+  "exceptionAuthTooManyRequests": "The number of requests exceeds the maximum allowed",
+  "exceptionAuthUserNotFound": "No such user exists",
+  "exceptionAuthUserDisabled": "User is disabled",
+  "exceptionAuthInvalidVerificationCode": "The code entered is invalid",
+  "exceptionAuthRequiresRecentLogin": "Additional authentication required",
+  "exceptionAuthUnknown": "An unknown auth error occurred",
+  "exceptionAuthWeakPassword": "Weak password!",
+  "exceptionEntityNotFound": "The requested {entityName} was not found",
+  "@exceptionEntityNotFound": {
+    "placeholders": {
+      "entityName": {
+        "type": "String"
+      }
+    }
+  },
+  "exceptionEntityNotFoundGeneral": "The requested entity was not found",
+
+  "l_0": "---Bottom navigation---",
+  "main": "Головна",
+  "lectures": "Лекції",
+  "highlights": "Основне",
+  "favorites": "Вибране",
+  "more": "Ще",
+
+  "l_1": "---Login screen---",
+  "login": "Login",
+  "logout": "Logout",
+  "forgotPassword": "Forgot password?",
+  "registration": "Registration",
+  "email": "Email",
+  "emailInvalid": "Please check that the email you entered is correct.",
+  "password": "Password",
+  "passwordInvalid": "The password must be strong!",
+  "confirmPassword": "Confirm password",
+  "passwordConfirmInvalid": "Check that the entered passwords match.",
+  "apple": "Apple",
+  "google": "Google",
+
+  "l_2": "---Main screen---",
+  "l_3": "---Lectures screen---",
+  "l_4": "---Highlights screen---",
+  "l_5": "---Favorites screen---",
+  "l_6": "---More screen---",
+  "l_6_1": "---Settings screen---",
+  "settingsApp": "Налаштування застосунку",
+  "themeApp": "Тема застосунку",
+  "systemMode": "Використовувати налаштування системи",
+  "darkMode": "Тема темна",
+  "languageApp": "Мова застосунку",
+  "l_7": "---Edit/Add lecture screen---",
+  "l_n": "---"
 }

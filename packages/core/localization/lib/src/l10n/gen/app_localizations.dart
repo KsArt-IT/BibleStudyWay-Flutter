@@ -63,8 +63,7 @@ import 'app_localizations_uk.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -72,8 +71,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -94,11 +92,7 @@ abstract class AppLocalizations {
       ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('ru'),
-    Locale('uk'),
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('ru'), Locale('uk')];
 
   /// No description provided for @lang.
   ///
@@ -124,11 +118,155 @@ abstract class AppLocalizations {
   /// **'Hello World!'**
   String get helloWorld;
 
-  /// No description provided for @l_1.
+  /// No description provided for @l_exception.
+  ///
+  /// In en, this message translates to:
+  /// **'----------'**
+  String get l_exception;
+
+  /// No description provided for @exceptionGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred, please try again later.'**
+  String get exceptionGeneral;
+
+  /// No description provided for @exceptionDecodeEntityGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not decode entity'**
+  String get exceptionDecodeEntityGeneral;
+
+  /// No description provided for @exceptionDecodeEntity.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not decode entity: {entityName}'**
+  String exceptionDecodeEntity(String entityName);
+
+  /// No description provided for @exceptionHttpGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'A network error occurred during the request'**
+  String get exceptionHttpGeneral;
+
+  /// No description provided for @exceptionHttpNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'The requested resource was not found'**
+  String get exceptionHttpNotFound;
+
+  /// No description provided for @exceptionHttpForbidden.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have permissions to perform this action'**
+  String get exceptionHttpForbidden;
+
+  /// No description provided for @exceptionHttpUnauthorized.
+  ///
+  /// In en, this message translates to:
+  /// **'This request was not authorized'**
+  String get exceptionHttpUnauthorized;
+
+  /// No description provided for @exceptionAuthEmailExists.
+  ///
+  /// In en, this message translates to:
+  /// **'The provided email is already in use'**
+  String get exceptionAuthEmailExists;
+
+  /// No description provided for @exceptionAuthInvalidCredentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid login credentials'**
+  String get exceptionAuthInvalidCredentials;
+
+  /// No description provided for @exceptionAuthInternalError.
+  ///
+  /// In en, this message translates to:
+  /// **'An internal error occurred'**
+  String get exceptionAuthInternalError;
+
+  /// No description provided for @exceptionAuthInvalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'The provided email is invalid'**
+  String get exceptionAuthInvalidEmail;
+
+  /// No description provided for @exceptionAuthInvalidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'The provided password is invalid'**
+  String get exceptionAuthInvalidPassword;
+
+  /// No description provided for @exceptionAuthInvalidPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'The provided phone number is invalid'**
+  String get exceptionAuthInvalidPhone;
+
+  /// No description provided for @exceptionAuthPhoneExists.
+  ///
+  /// In en, this message translates to:
+  /// **'The provided phone number is already in use'**
+  String get exceptionAuthPhoneExists;
+
+  /// No description provided for @exceptionAuthTooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'The number of requests exceeds the maximum allowed'**
+  String get exceptionAuthTooManyRequests;
+
+  /// No description provided for @exceptionAuthUserNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No such user exists'**
+  String get exceptionAuthUserNotFound;
+
+  /// No description provided for @exceptionAuthUserDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'User is disabled'**
+  String get exceptionAuthUserDisabled;
+
+  /// No description provided for @exceptionAuthInvalidVerificationCode.
+  ///
+  /// In en, this message translates to:
+  /// **'The code entered is invalid'**
+  String get exceptionAuthInvalidVerificationCode;
+
+  /// No description provided for @exceptionAuthRequiresRecentLogin.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional authentication required'**
+  String get exceptionAuthRequiresRecentLogin;
+
+  /// No description provided for @exceptionAuthUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'An unknown auth error occurred'**
+  String get exceptionAuthUnknown;
+
+  /// No description provided for @exceptionAuthWeakPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak password!'**
+  String get exceptionAuthWeakPassword;
+
+  /// No description provided for @exceptionEntityNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'The requested {entityName} was not found'**
+  String exceptionEntityNotFound(String entityName);
+
+  /// No description provided for @exceptionEntityNotFoundGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'The requested entity was not found'**
+  String get exceptionEntityNotFoundGeneral;
+
+  /// No description provided for @l_0.
   ///
   /// In en, this message translates to:
   /// **'---Bottom navigation---'**
-  String get l_1;
+  String get l_0;
 
   /// No description provided for @main.
   ///
@@ -159,6 +297,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'More'**
   String get more;
+
+  /// No description provided for @l_1.
+  ///
+  /// In en, this message translates to:
+  /// **'---Login screen---'**
+  String get l_1;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @registration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get registration;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @emailInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Please check that the email you entered is correct.'**
+  String get emailInvalid;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @passwordInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'The password must be strong!'**
+  String get passwordInvalid;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get confirmPassword;
+
+  /// No description provided for @passwordConfirmInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Check that the entered passwords match.'**
+  String get passwordConfirmInvalid;
+
+  /// No description provided for @apple.
+  ///
+  /// In en, this message translates to:
+  /// **'Apple'**
+  String get apple;
+
+  /// No description provided for @google.
+  ///
+  /// In en, this message translates to:
+  /// **'Google'**
+  String get google;
 
   /// No description provided for @l_2.
   ///
@@ -239,8 +455,7 @@ abstract class AppLocalizations {
   String get l_n;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -249,8 +464,7 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'ru', 'uk'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'ru', 'uk'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
