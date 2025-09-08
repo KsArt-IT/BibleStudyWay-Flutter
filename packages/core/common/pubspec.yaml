@@ -1,7 +1,6 @@
 name: core_common
 description: Common data, interfaces and dependencies.
 version: 0.0.1
-homepage:
 
 environment:
   sdk: ^3.8.1
@@ -10,10 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Firebase
+  firebase_auth: ^6.0.2
+
+  # Core
+  core_localization:
+    path: ../../core/localization
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
-
-flutter:
