@@ -1,3 +1,6 @@
+Result<R> success<R>(R value) => Result.success(value);
+Result<R> failure<R>(Exception error) => Result.failure(error);
+
 sealed class Result<T> {
   const Result();
 
