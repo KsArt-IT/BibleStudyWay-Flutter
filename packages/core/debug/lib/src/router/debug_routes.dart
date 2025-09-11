@@ -17,12 +17,12 @@ abstract final class DebugRoutes {
 
   /// Пути до екранів
   static const String debugScreenPath = '/debug';
-  static const String tokensScreenPath = 'debug/tokens';
-  static const String uiKitScreenPath = 'debug/ui_kit';
-  static const String iconsScreenPath = 'debug/icons';
-  static const String themeScreenPath = 'debug/theme';
-  static const String langScreenPath = 'debug/lang';
-  static const String componentsScreenPath = 'debug/components';
+  static const String tokensScreenPath = 'tokens';
+  static const String uiKitScreenPath = 'ui_kit';
+  static const String iconsScreenPath = 'icons';
+  static const String themeScreenPath = 'theme';
+  static const String langScreenPath = 'lang';
+  static const String componentsScreenPath = 'components';
 
   /// Метод для створення роутів для відлагодження
   ///
