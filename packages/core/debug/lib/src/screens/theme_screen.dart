@@ -25,7 +25,7 @@ class ThemeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                context.theme.changeTheme();
+                context.themeNotifier.changeTheme();
               },
               child: const Text('Змінити тему'),
             ),
@@ -45,7 +45,7 @@ class ThemeScreen extends StatelessWidget {
               ),
               child: ListTile(
                 title: Text(
-                  'Поточна тема: ${context.theme.themeMode}',
+                  'Поточна тема: ${context.themeNotifier.themeMode}',
                   style: TextStyle(
                     color: colors.onPrimaryColor,
                     fontWeight: FontWeight.bold,
