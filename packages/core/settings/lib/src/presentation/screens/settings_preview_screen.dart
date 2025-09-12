@@ -1,5 +1,7 @@
+import 'package:auth/auth.dart';
 import 'package:core_localization/localization.dart';
 import 'package:core_settings/src/presentation/settings_routes.dart';
+import 'package:core_shared/shared.dart';
 import 'package:core_theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -35,9 +37,8 @@ class SettingsPreviewScreen extends StatelessWidget {
                   subtitle: Text(context.l10n.systemMode),
                   value: theme.isSystemMode,
                   contentPadding: EdgeInsets.zero,
-                  onChanged: (value) => theme.changeTheme(
-                    darkMode: value ? null : theme.isDarkMode,
-                  ),
+                  onChanged: (value) =>
+                      theme.changeTheme(darkMode: value ? null : theme.isDarkMode),
                 ),
                 SwitchListTile(
                   title: Text(context.l10n.darkMode),
@@ -56,15 +57,12 @@ class SettingsPreviewScreen extends StatelessWidget {
             return Column(
               children: [
                 SwitchListTile(
-                  title: Text(
-                    '${context.l10n.languageApp}: ${context.l10n.lang}',
-                  ),
+                  title: Text('${context.l10n.languageApp}: ${context.l10n.lang}'),
                   subtitle: Text(context.l10n.systemMode),
                   value: localization.isSystemMode,
                   contentPadding: EdgeInsets.zero,
-                  onChanged: (value) => localization.changeLocale(
-                    value ? null : localization.locale,
-                  ),
+                  onChanged: (value) =>
+                      localization.changeLocale(value ? null : localization.locale),
                 ),
 
                 ...AppLocalizations.supportedLocales.map(
@@ -82,6 +80,17 @@ class SettingsPreviewScreen extends StatelessWidget {
               ],
             );
           },
+        ),
+        Divider(),
+        AppTextButton(
+          text: context.l10n.logout,
+          icon: const Icon(Icons.logout),
+          iconPosition: IconPosition.start,
+          onPressed: () {
+            context.read<SignOutUseCase>().call();
+            context.go(AuthRoutes.loginScreenPath);
+          },
+          style: AppButtonStyle.text,
         ),
       ],
     );
