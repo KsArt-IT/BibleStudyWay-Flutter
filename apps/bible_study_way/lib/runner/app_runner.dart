@@ -92,7 +92,7 @@ class AppRunner {
           },
         ),
       );
-      await _onAppLoaded();
+      // await _onAppLoaded();
     } on Object catch (e, stackTrace) {
       await _onAppLoaded();
 
@@ -128,7 +128,7 @@ class AppRunner {
   }) async {
     // Імітація затримки ініціалізації
     // TODO: Вилучити після перевірки
-    await Future.delayed(const Duration(seconds: 3));
+    // await Future.delayed(const Duration(seconds: 3));
     debugService.log(() => 'Тип сборки: ${env.name}');
     final diContainer = DiContainer(env: env, dService: debugService);
     await diContainer.init(
