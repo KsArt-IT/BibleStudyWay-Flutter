@@ -66,6 +66,10 @@ final class DataFailure extends AppFailure {
   }
 }
 
+final class GeneralFailure extends AppFailure {
+  GeneralFailure(super.message, super.stackTrace);
+}
+
 final class NetworkFailure extends AppFailure {
   NetworkFailure(super.message, super.stackTrace);
 }
