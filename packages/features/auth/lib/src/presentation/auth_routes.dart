@@ -2,7 +2,7 @@ import 'package:auth/src/presentation/screens/login/login_providers.dart';
 import 'package:auth/src/presentation/screens/login/login_screen.dart';
 import 'package:auth/src/presentation/screens/registration/registration_providers.dart';
 import 'package:auth/src/presentation/screens/registration/registration_screen.dart';
-import 'package:auth/src/presentation/screens/reset_password/reset_password.dart';
+import 'package:auth/src/presentation/screens/reset_password/reset_password_screen.dart';
 import 'package:go_router/go_router.dart';
 
 abstract final class AuthRoutes {
