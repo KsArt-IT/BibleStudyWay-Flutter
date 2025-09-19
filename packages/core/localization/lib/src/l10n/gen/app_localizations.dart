@@ -262,6 +262,12 @@ abstract class AppLocalizations {
   /// **'The requested entity was not found'**
   String get exceptionEntityNotFoundGeneral;
 
+  /// No description provided for @exceptionPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to perform the specified operation.'**
+  String get exceptionPermissionDenied;
+
   /// No description provided for @l_0.
   ///
   /// In en, this message translates to:
@@ -363,6 +369,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Check that the entered passwords match.'**
   String get passwordConfirmInvalid;
+
+  /// No description provided for @resetPasswordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPasswordTitle;
+
+  /// No description provided for @resetPasswordSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your email'**
+  String get resetPasswordSuccess;
+
+  /// No description provided for @send.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get send;
 
   /// No description provided for @apple.
   ///

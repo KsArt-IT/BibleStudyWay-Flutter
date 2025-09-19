@@ -97,6 +97,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get exceptionEntityNotFoundGeneral => 'The requested entity was not found';
 
   @override
+  String get exceptionPermissionDenied =>
+      'You do not have permission to perform the specified operation.';
+
+  @override
   String get l_0 => '---Bottom navigation---';
 
   @override
@@ -146,6 +150,15 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get passwordConfirmInvalid => 'Check that the entered passwords match.';
+
+  @override
+  String get resetPasswordTitle => 'Сбросить пароль';
+
+  @override
+  String get resetPasswordSuccess => 'Проверьте свою почту';
+
+  @override
+  String get send => 'Отправить';
 
   @override
   String get apple => 'Apple';

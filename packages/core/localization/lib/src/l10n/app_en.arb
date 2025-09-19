@@ -51,6 +51,7 @@
     }
   },
   "exceptionEntityNotFoundGeneral": "The requested entity was not found",
+  "exceptionPermissionDenied": "You do not have permission to perform the specified operation.",
   
   "l_0": "---Bottom navigation---",
   "main": "Main",
@@ -70,6 +71,9 @@
   "passwordInvalid": "The password must be strong!",
   "confirmPassword": "Confirm password",
   "passwordConfirmInvalid": "Check that the entered passwords match.",
+  "resetPasswordTitle": "Reset Password",
+  "resetPasswordSuccess": "Check your email",
+  "send": "Send",
   "apple": "Apple",
   "google": "Google",
 

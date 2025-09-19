@@ -52,7 +52,8 @@
     }
   },
   "exceptionEntityNotFoundGeneral": "The requested entity was not found",
-
+  "exceptionPermissionDenied": "You do not have permission to perform the specified operation.",
+  
   "l_0": "---Bottom navigation---",
   "main": "Главная",
   "lectures": "Лекции",
@@ -71,6 +72,9 @@
   "passwordInvalid": "The password must be strong!",
   "confirmPassword": "Confirm password",
   "passwordConfirmInvalid": "Check that the entered passwords match.",
+  "resetPasswordTitle": "Сбросить пароль",
+  "resetPasswordSuccess": "Проверьте свою почту",
+  "send": "Отправить",
   "apple": "Apple",
   "google": "Google",
 
