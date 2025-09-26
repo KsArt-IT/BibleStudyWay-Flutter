@@ -1,0 +1,39 @@
+name: video_player
+description: "YouTube video player"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.8.1
+  flutter: ^3.32.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Navigation
+  go_router: ^16.2.4
+  # State Management
+  flutter_bloc: ^9.1.1
+  bloc: ^9.0.1
+  provider: ^6.1.5
+  equatable: ^2.0.7
+
+  # YouTube video player
+  youtube_player_flutter: ^9.1.2
+
+  # Theme app
+  core_theme:
+    path: ../../core/theme
+  # Localization app
+  core_localization:
+    path: ../../core/localization
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
