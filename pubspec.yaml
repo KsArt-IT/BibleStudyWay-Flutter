@@ -1,6 +1,42 @@
-name: bible_study_way
+name: BibleStudyWay
 publish_to: none
 environment:
-  sdk: ">=3.8.1 <4.0.0"
+  sdk: ">=3.9.0 <4.0.0"
 dev_dependencies:
-  melos: ^6.3.3
+  melos: ^7.2.0
+workspace:
+  - apps/bible_study_way
+  - packages/core/common
+  - packages/core/config
+  - packages/core/debug
+  - packages/core/localization
+  - packages/core/settings
+  - packages/core/shared
+  - packages/core/theme
+  - packages/features/auth
+  - packages/features/favorites
+  - packages/features/highlights
+  - packages/features/lectures
+  - packages/features/main
+  - packages/features/more
+  - packages/features/progress
+  - packages/features/video_player
+melos:
+  packages:
+    - apps/**
+    - packages/**
+
+  scripts:
+    prepare: melos bootstrap && melos run build
+    gen:
+      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build
+    gen_all:
+      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build --delete-conflicting-outputs
+    gen_loc:
+      run: melos exec -c 1 --depends-on flutter_localizations -- flutter gen-l10n
+    hello:
+      name: hey
+      description: Greet the world
+      run: echo '$GREETING World'
+      env:
+        $GREETING: 'Hey'

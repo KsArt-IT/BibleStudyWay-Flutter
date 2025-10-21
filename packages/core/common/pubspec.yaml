@@ -3,14 +3,16 @@ description: Common data, interfaces and dependencies.
 version: 0.0.1
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.0
   flutter: ">=3.32.0"
+
+resolution: workspace
 
 dependencies:
   flutter:
     sdk: flutter
   # Firebase
-  firebase_auth: ^6.0.2
+  firebase_auth: ^6.1.1
 
   # Core
   core_localization:

@@ -1,8 +1,0 @@
-# melos_managed_dependency_overrides: core_common,core_localization,core_settings
-dependency_overrides:
-  core_common:
-    path: ../common
-  core_localization:
-    path: ../localization
-  core_settings:
-    path: ../settings
