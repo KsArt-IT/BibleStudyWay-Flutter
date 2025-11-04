@@ -1,6 +1,9 @@
 library;
 
 export 'src/di/di_base_repo.dart';
+export 'src/domain/entity/player_param.dart';
+export 'src/domain/entity/player_state.dart';
+export 'src/domain/entity/player_status.dart';
 export 'src/domain/entity/result.dart';
 export 'src/domain/entity/state_status.dart';
 export 'src/domain/exception/app_exception.dart';

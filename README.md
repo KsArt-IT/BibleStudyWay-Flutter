@@ -19,9 +19,9 @@ Mobile app on Flutter: Android, iOS
 ```bash
 # clone repository
 git clone git@github.com:KsArt-IT/BibleStudyWay-Flutter.git
-cd BibleStudyWay-Flutter/app
+cd BibleStudyWay-Flutter
 # run app
-flutter pub get
+melos bootstrap
 flutter run -d chrome
 ```
 

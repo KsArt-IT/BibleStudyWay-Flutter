@@ -16,5 +16,6 @@
 
 # Cursor AI
 .cursor/
+.kiro/
 
 .project/
