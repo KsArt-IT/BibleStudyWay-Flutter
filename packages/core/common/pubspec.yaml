@@ -4,7 +4,7 @@ version: 0.0.1
 
 environment:
   sdk: ^3.9.0
-  flutter: ">=3.32.0"
+  flutter: ^3.35.0
 
 resolution: workspace
 
@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   # Firebase
-  firebase_auth: ^6.1.1
+  firebase_auth: ^6.1.2
 
   # Core
   core_localization:

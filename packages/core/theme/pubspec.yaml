@@ -5,7 +5,7 @@ homepage:
 
 environment:
   sdk: ^3.9.0
-  flutter: ">=3.32.0"
+  flutter: ^3.35.0
 
 resolution: workspace
 
@@ -27,7 +27,7 @@ dev_dependencies:
   flutter_lints: ^6.0.0
 
   # Build
-  build_runner: ^2.10.0
+  build_runner: ^2.10.1
   # Theme gen
   theme_tailor: ^3.1.1
 
