@@ -58,7 +58,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         },
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(AppConstants.paddingMedium),
             child: Column(
               children: [
                 AppTextField(
@@ -66,7 +66,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   label: l10n.email,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: AppConstants.paddingMedium),
                 AppButton(
                   label: l10n.send,
                   onPressed: () {
