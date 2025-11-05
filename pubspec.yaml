@@ -26,17 +26,33 @@ melos:
     - apps/**
     - packages/**
 
+  ide:
+    intellij:
+      enabled: false
+      executeInTerminal: false
+
   scripts:
     prepare: melos bootstrap && melos run build
-    gen:
-      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build
     gen_all:
-      run: melos exec -c 1 --depends-on build_runner -- dart run build_runner build --delete-conflicting-outputs
+      run: |
+        melos run gen
+        melos run gen_l10n
+      description: Generate code for all packages (build_runner + localization)
+    gen:
+      run: dart run build_runner build --delete-conflicting-outputs
+      exec:
+        concurrency: 15
+        orderDependents: true
+      packageFilters:
+        ignore: "contracts"
+        dependsOn: build_runner
     gen_loc:
+      run: melos exec -c 1 --depends-on flutter_localizations -- flutter gen-l10n
+    gen_l10n:
       run: melos exec -c 1 --depends-on flutter_localizations -- flutter gen-l10n
     hello:
       name: hey
       description: Greet the world
       run: echo '$GREETING World'
       env:
-        $GREETING: 'Hey'
+        GREETING: 'Hey'  
