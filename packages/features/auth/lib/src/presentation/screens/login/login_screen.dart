@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
           }
         },
         child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(AppConstants.paddingMedium),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () => context.goNamed(AuthRoutes.resetPasswordScreenName),
                     style: AppButtonStyle.text,
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: AppConstants.paddingMedium),
                   AppTextButton(
                     text: l10n.registration,
                     onPressed: () => context.goNamed(AuthRoutes.registrationScreenName),
@@ -113,28 +113,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppConstants.paddingMedium),
               AppTextField(
                 label: l10n.email,
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppConstants.paddingMedium),
               AppPasswordTextField(label: l10n.password, controller: _passwordController),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppConstants.paddingMedium),
               AppButton(
                 label: l10n.login,
                 onPressed: _onLogin,
                 isLoading: isLoading,
                 isDisabled: !isEnabled,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: AppConstants.paddingMedium),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   AppTextButton(text: l10n.apple, onPressed: () {}, style: AppButtonStyle.text),
-                  const SizedBox(width: 16),
-                  if (Platform.isAndroid)
+                  if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS)
                     AppTextButton(
                       text: l10n.google,
                       onPressed: _onLoginGoogle,
