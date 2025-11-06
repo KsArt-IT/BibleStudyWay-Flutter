@@ -1,6 +1,7 @@
 import 'package:auth/auth.dart';
 import 'package:auth/src/data/mappers/dto_to_domain.dart';
 import 'package:core_common/common.dart';
+import 'package:flutter/foundation.dart';
 
 /// {@template firebase_auth_repository}
 /// Repository for working with Firebase Auth.
@@ -71,6 +72,20 @@ final class FirebaseAuthRepository with SafeCallMixin implements AuthRepository 
   @override
   Future<Result<AuthUser>> signInWithGoogle() async {
     await safeCall(() async {
+      if (kIsWeb) {
+        final googleProvider = GoogleAuthProvider();
+
+        googleProvider.addScope('email');
+        // Добавляем параметр для выбора аккаунта на веб
+        googleProvider.setCustomParameters({
+          'prompt': 'select_account',
+        });
+
+        // Once signed in, return the UserCredential
+        await FirebaseAuth.instance.signInWithPopup(googleProvider);
+
+        return getCurrentUser();
+      }
       // Authenticate with Google
       final googleUser = await _googleSignIn.authenticate(
         scopeHint: GoogleService.scopes,
@@ -110,7 +125,7 @@ final class FirebaseAuthRepository with SafeCallMixin implements AuthRepository 
   Future<Result<void>> signOut() async {
     return voidSafeCall(() async {
       await _firebaseAuth.signOut();
-      // await _googleSignIn.signOut();
+      await _googleSignIn.signOut();
     });
   }
 
