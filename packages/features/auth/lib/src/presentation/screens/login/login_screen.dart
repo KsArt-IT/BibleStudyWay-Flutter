@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:auth/auth.dart';
 import 'package:auth/src/presentation/screens/login/cubit/login_cubit.dart';
 import 'package:core_localization/localization.dart';
@@ -18,8 +16,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  var isEnabled = false;
-  var isLoading = false;
+  var _isFormValid = false;
+  var _isLoading = false;
 
   @override
   void initState() {
@@ -39,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _onLogin() {
     _setLoading(true);
-    _setEnabled(false);
+    _setFormValid(false);
     context.read<LoginCubit>().signInWithEmailAndPassword(
       _emailController.text,
       _passwordController.text,
@@ -48,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _onLoginGoogle() {
     _setLoading(true);
-    _setEnabled(false);
+    _setFormValid(false);
     context.read<LoginCubit>().signInWithGoogle();
   }
 
@@ -57,20 +55,20 @@ class _LoginScreenState extends State<LoginScreen> {
         _emailController.text.trim().isNotEmpty &&
         _emailController.text.contains('@') &&
         _passwordController.text.trim().isNotEmpty;
-    _setEnabled(isValid);
+    _setFormValid(isValid);
   }
 
   void _setLoading(bool value) {
-    if (isLoading == value) return;
+    if (_isLoading == value) return;
     setState(() {
-      isLoading = value;
+      _isLoading = value;
     });
   }
 
-  void _setEnabled(bool value) {
-    if (isEnabled == value) return;
+  void _setFormValid(bool value) {
+    if (_isFormValid == value) return;
     setState(() {
-      isEnabled = value;
+      _isFormValid = value;
     });
   }
 
@@ -102,14 +100,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   AppTextButton(
                     text: l10n.forgotPassword,
-                    onPressed: () => context.goNamed(AuthRoutes.resetPasswordScreenName),
+                    isDisabled: _isLoading,
                     style: AppButtonStyle.text,
+                    onPressed: () => context.goNamed(AuthRoutes.resetPasswordScreenName),
                   ),
                   const SizedBox(width: AppConstants.paddingMedium),
                   AppTextButton(
                     text: l10n.registration,
-                    onPressed: () => context.goNamed(AuthRoutes.registrationScreenName),
+                    isDisabled: _isLoading,
                     style: AppButtonStyle.text,
+                    onPressed: () => context.goNamed(AuthRoutes.registrationScreenName),
                   ),
                 ],
               ),
@@ -118,27 +118,27 @@ class _LoginScreenState extends State<LoginScreen> {
                 label: l10n.email,
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
+                readOnly: _isLoading,
               ),
               const SizedBox(height: AppConstants.paddingMedium),
               AppPasswordTextField(label: l10n.password, controller: _passwordController),
               const SizedBox(height: AppConstants.paddingMedium),
               AppButton(
                 label: l10n.login,
+                isLoading: _isLoading,
+                isDisabled: !_isFormValid,
                 onPressed: _onLogin,
-                isLoading: isLoading,
-                isDisabled: !isEnabled,
               ),
               const SizedBox(height: AppConstants.paddingMedium),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   AppTextButton(text: l10n.apple, onPressed: () {}, style: AppButtonStyle.text),
-                  if (Platform.isAndroid || Platform.isIOS || Platform.isMacOS)
-                    AppTextButton(
-                      text: l10n.google,
-                      onPressed: _onLoginGoogle,
-                      style: AppButtonStyle.text,
-                    ),
+                  AppTextButton(
+                    text: l10n.google,
+                    style: AppButtonStyle.text,
+                    onPressed: _onLoginGoogle,
+                  ),
                 ],
               ),
             ],
