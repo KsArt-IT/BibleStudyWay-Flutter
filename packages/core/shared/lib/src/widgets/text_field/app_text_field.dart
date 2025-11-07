@@ -14,6 +14,7 @@ class AppTextField extends StatelessWidget {
   final String? errorText;
   final AppTextFieldStyle type;
   final bool enabled;
+  final bool readOnly;
   final int? maxLines;
   final double borderRadius;
   final ValueChanged<String>? onChanged;
@@ -32,6 +33,7 @@ class AppTextField extends StatelessWidget {
     this.errorText,
     this.type = AppTextFieldStyle.outlined,
     this.enabled = true,
+    this.readOnly = false,
     this.maxLines = 1,
     this.borderRadius = 16,
     this.onChanged,
@@ -51,6 +53,7 @@ class AppTextField extends StatelessWidget {
       enableSuggestions: false,
       onChanged: onChanged,
       enabled: enabled,
+      readOnly: readOnly,
       maxLines: maxLines,
       cursorColor: theme.colorScheme.primary,
       cursorWidth: 1.5,
