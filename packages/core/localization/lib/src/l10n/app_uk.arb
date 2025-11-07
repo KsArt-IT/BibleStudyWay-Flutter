@@ -90,5 +90,13 @@
   "darkMode": "Тема темна",
   "languageApp": "Мова застосунку",
   "l_7": "---Edit/Add lecture screen---",
+  
+  "l_8": "---Video player screen---",
+  "minimize": "Згорнути",
+  "expand": "Розгорнути",
+  "fullscreen": "Повний екран",
+  "exitFullscreen": "Вийти з повного екрана",
+  "close": "Закрити",
+  
   "l_n": "---"
 }

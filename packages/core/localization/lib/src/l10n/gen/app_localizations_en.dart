@@ -203,5 +203,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get l_7 => '---Edit/Add lecture screen---';
 
   @override
+  String get l_8 => '---Video player screen---';
+
+  @override
+  String get minimize => 'Minimize';
+
+  @override
+  String get expand => 'Expand';
+
+  @override
+  String get fullscreen => 'Fullscreen';
+
+  @override
+  String get exitFullscreen => 'Exit fullscreen';
+
+  @override
+  String get close => 'Close';
+
+  @override
   String get l_n => '---';
 }

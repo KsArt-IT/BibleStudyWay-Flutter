@@ -89,5 +89,13 @@
   "darkMode": "Dark mode",
   "languageApp": "Application language",
   "l_7": "---Edit/Add lecture screen---",
+
+  "l_8": "---Video player screen---",
+  "minimize": "Minimize",
+  "expand": "Expand",
+  "fullscreen": "Fullscreen",
+  "exitFullscreen": "Exit fullscreen",
+  "close": "Close",
+
   "l_n": "---"
 }

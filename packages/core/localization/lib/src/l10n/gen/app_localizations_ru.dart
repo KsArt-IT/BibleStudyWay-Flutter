@@ -203,5 +203,23 @@ class AppLocalizationsRu extends AppLocalizations {
   String get l_7 => '---Edit/Add lecture screen---';
 
   @override
+  String get l_8 => '---Video player screen---';
+
+  @override
+  String get minimize => 'Свернуть';
+
+  @override
+  String get expand => 'Развернуть';
+
+  @override
+  String get fullscreen => 'Полный экран';
+
+  @override
+  String get exitFullscreen => 'Выйти из полного экрана';
+
+  @override
+  String get close => 'Закрыть';
+
+  @override
   String get l_n => '---';
 }

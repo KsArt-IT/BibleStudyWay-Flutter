@@ -472,6 +472,42 @@ abstract class AppLocalizations {
   /// **'---Edit/Add lecture screen---'**
   String get l_7;
 
+  /// No description provided for @l_8.
+  ///
+  /// In en, this message translates to:
+  /// **'---Video player screen---'**
+  String get l_8;
+
+  /// No description provided for @minimize.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimize'**
+  String get minimize;
+
+  /// No description provided for @expand.
+  ///
+  /// In en, this message translates to:
+  /// **'Expand'**
+  String get expand;
+
+  /// No description provided for @fullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Fullscreen'**
+  String get fullscreen;
+
+  /// No description provided for @exitFullscreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit fullscreen'**
+  String get exitFullscreen;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @l_n.
   ///
   /// In en, this message translates to:
