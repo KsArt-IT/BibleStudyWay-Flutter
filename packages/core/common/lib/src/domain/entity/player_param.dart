@@ -10,10 +10,10 @@ class PlayerParam {
   final bool isFullScreen;
   final bool isMinimal;
 
-  // Параметры перетаскивания
-  final bool isDragging; // Активное перетаскивание
-  final double dragStartY; // Начальная позиция перетаскивания
-  final double dragVelocity; // Скорость перетаскивания
+  // Параметри перетягування
+  final bool isDragging; // Активне перетягування
+  final double dragStartY; // Початкова позиція перетягування
+  final double dragVelocity; // Швидкість перетягування
 
   const PlayerParam({
     required this.currentHeight,
@@ -70,14 +70,14 @@ class PlayerParam {
     dragVelocity: dragVelocity ?? this.dragVelocity,
   );
 
-  /// Определяет текущее состояние окна на основе высоты
+  /// Визначає поточний стан вікна на основі висоти
   PlayerWindowState get currentWindowState {
     if (isFullScreen) return PlayerWindowState.fullscreen;
     if (isExpanded) return PlayerWindowState.expanded;
     return PlayerWindowState.minimal;
   }
 
-  /// Определяет состояние окна на основе текущей высоты
+  /// Визначає стан вікна на основі поточної висоти
   static PlayerWindowState determineStateByHeight(
     double height,
     double minHeight,
@@ -88,19 +88,15 @@ class PlayerParam {
     return PlayerWindowState.fullscreen;
   }
 
-  /// Возвращает высоту для указанного состояния
-  static double getHeightForState(PlayerWindowState state, double minHeight, double maxHeight) {
-    switch (state) {
-      case PlayerWindowState.minimal:
-        return minHeight;
-      case PlayerWindowState.expanded:
-        return maxHeight;
-      case PlayerWindowState.fullscreen:
-        return double.infinity;
-    }
-  }
+  /// Повертає висоту для зазначеного стану
+  static double getHeightForState(PlayerWindowState state, double minHeight, double maxHeight) =>
+      switch (state) {
+        PlayerWindowState.minimal => minHeight,
+        PlayerWindowState.expanded => maxHeight,
+        PlayerWindowState.fullscreen => double.infinity,
+      };
 
-  /// Создает новый PlayerParam с обновленным состоянием на основе высоты
+  /// Створює новий PlayerParam із оновленим станом на основі висоти
   PlayerParam updateStateByHeight() {
     final newState = determineStateByHeight(currentHeight, minHeight, maxHeight);
     return copyWith(
