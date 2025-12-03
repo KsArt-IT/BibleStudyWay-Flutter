@@ -1,0 +1,20 @@
+name: core_linter
+description: "Linter"
+publish_to: none
+
+version: 0.0.1
+
+environment:
+  sdk: ^3.10.1
+  flutter: ^3.38.3
+
+dependencies:
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  config:
+    enable-swift-package-manager: true
