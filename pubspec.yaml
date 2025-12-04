@@ -1,9 +1,13 @@
 name: BibleStudyWay
 publish_to: none
 environment:
-  sdk: ">=3.9.0 <4.0.0"
+  sdk: ^3.10.1
+  flutter: ^3.38.3
 dev_dependencies:
   melos: ^7.3.0
+flutter:
+  config:
+    enable-swift-package-manager: false
 workspace:
   - apps/bible_study_way
   - packages/core/common
@@ -33,6 +37,20 @@ melos:
 
   scripts:
     prepare: melos bootstrap && melos run build
+    clean_all:
+      run: flutter clean
+      exec:
+        concurrency: 15
+        orderDependents: true
+      packageFilters:
+        scope: "*"
+    get:
+      run: flutter pub get && flutter pub upgrade
+      exec:
+        concurrency: 15
+        orderDependents: true
+      packageFilters:
+        scope: "*"
     gen_all:
       run: |
         melos run gen
@@ -44,7 +62,6 @@ melos:
         concurrency: 15
         orderDependents: true
       packageFilters:
-        ignore: "contracts"
         dependsOn: build_runner
     gen_loc:
       run: melos exec -c 1 --depends-on flutter_localizations -- flutter gen-l10n
