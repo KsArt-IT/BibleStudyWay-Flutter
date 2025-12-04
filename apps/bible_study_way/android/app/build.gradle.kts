@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "life.StudyWay.bible_study_way"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = "29.0.13599879"
+    ndkVersion = "29.0.14206865"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
