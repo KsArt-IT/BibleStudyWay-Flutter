@@ -97,8 +97,8 @@ web/drift_worker.dart.js.map
 *.chopper.dart
 *.module.dart
 **/generated/
+**/gen/
 
-**/gen
 ios/Podfile.lock
 macos/Podfile.lock
 packages/*/build/
