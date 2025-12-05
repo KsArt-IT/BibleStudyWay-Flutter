@@ -29,3 +29,17 @@ migrate_working_dir/
 .flutter-plugins
 .flutter-plugins-dependencies
 build/
+
+# Generated files
+*.g.dart
+*.gr.dart
+*.freezed.dart
+*.gen.dart
+*.moor.dart
+*.mocks.dart
+*.hive.dart
+*.config.dart
+*.chopper.dart
+*.module.dart
+**/generated/
+**/gen/
